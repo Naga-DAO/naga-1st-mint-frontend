@@ -7,8 +7,6 @@ import styled from "styled-components";
 
 import nagaImg01 from "./styles/img/Naga_21-22.png"
 import Item1 from "./styles/img/item1.png"
-import nagaDAOimg from "./styles/img/nagaDAO.png"
-import testItem2 from "./styles/img/test2.png"
 
 
 const truncate = (input, len) =>
