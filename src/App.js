@@ -5,93 +5,37 @@ import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
 
+import nagaImg01 from "./styles/img/Naga_21-22.png"
+import Item1 from "./styles/img/item1.png"
+import nagaDAOimg from "./styles/img/nagaDAO.png"
+import testItem2 from "./styles/img/test2.png"
+
+
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
 export const StyledButton = styled.button`
-  padding: 10px;
-  border-radius: 50px;
-  border: none;
-  background-color: var(--secondary);
-  padding: 10px;
-  font-weight: bold;
-  color: var(--secondary-text);
-  width: 100px;
-  cursor: pointer;
-  box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
-  -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
-  -moz-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
-  :active {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-  }
+
 `;
 
 export const StyledRoundButton = styled.button`
-  padding: 10px;
-  border-radius: 100%;
-  border: none;
-  background-color: var(--primary);
-  padding: 10px;
-  font-weight: bold;
-  font-size: 15px;
-  color: var(--primary-text);
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
-  -webkit-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
-  -moz-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
-  :active {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-  }
+
 `;
 
 export const ResponsiveWrapper = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: stretched;
-  align-items: stretched;
-  width: 100%;
-  @media (min-width: 767px) {
-    flex-direction: row;
-  }
+
 `;
 
 export const StyledLogo = styled.img`
-  width: 200px;
-  @media (min-width: 767px) {
-    width: 300px;
-  }
-  transition: width 0.5s;
-  transition: height 0.5s;
+
 `;
 
 export const StyledImg = styled.img`
-  box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
-  border: 4px dashed var(--secondary);
-  background-color: var(--accent);
-  border-radius: 100%;
-  width: 200px;
-  @media (min-width: 900px) {
-    width: 250px;
-  }
-  @media (min-width: 1000px) {
-    width: 300px;
-  }
-  transition: width 0.5s;
+
 `;
 
 export const StyledLink = styled.a`
-  color: var(--secondary);
-  text-decoration: none;
+
 `;
 
 function App() {
@@ -145,7 +89,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
+          `the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -194,216 +138,261 @@ function App() {
   }, [blockchain.account]);
 
   return (
-    <s.Screen>
-      <s.Container
-        flex={1}
-        ai={"center"}
-        style={{ padding: 24, backgroundColor: "var(--primary)" }}
-        image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
-      >
-        <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
-        <s.SpacerSmall />
-        <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
-          <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg alt={"example"} src={"/config/images/example.gif"} />
-          </s.Container>
-          <s.SpacerLarge />
-          <s.Container
-            flex={2}
-            jc={"center"}
-            ai={"center"}
-            style={{
-              backgroundColor: "var(--accent)",
-              padding: 24,
-              borderRadius: 24,
-              border: "4px dashed var(--secondary)",
-              boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
-            }}
-          >
-            <s.TextTitle
-              style={{
-                textAlign: "center",
-                fontSize: 50,
-                fontWeight: "bold",
-                color: "var(--accent-text)",
-              }}
-            >
-              {data.totalSupply} / {CONFIG.MAX_SUPPLY}
-            </s.TextTitle>
-            <s.TextDescription
-              style={{
-                textAlign: "center",
-                color: "var(--primary-text)",
-              }}
-            >
-              <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
-                {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
-              </StyledLink>
-            </s.TextDescription>
-            <s.SpacerSmall />
-            {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
-              <>
-                <s.TextTitle
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  The sale has ended.
-                </s.TextTitle>
-                <s.TextDescription
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  You can still find {CONFIG.NFT_NAME} on
-                </s.TextDescription>
-                <s.SpacerSmall />
-                <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
-                  {CONFIG.MARKETPLACE}
-                </StyledLink>
-              </>
-            ) : (
-              <>
-                <s.TextTitle
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
-                  {CONFIG.NETWORK.SYMBOL}.
-                </s.TextTitle>
-                <s.SpacerXSmall />
-                <s.TextDescription
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  Excluding gas fees.
-                </s.TextDescription>
-                <s.SpacerSmall />
-                {blockchain.account === "" ||
-                blockchain.smartContract === null ? (
-                  <s.Container ai={"center"} jc={"center"}>
-                    <s.TextDescription
-                      style={{
-                        textAlign: "center",
-                        color: "var(--accent-text)",
-                      }}
-                    >
-                      Connect to the {CONFIG.NETWORK.NAME} network
-                    </s.TextDescription>
-                    <s.SpacerSmall />
-                    <StyledButton
-                      onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(connect());
-                        getData();
-                      }}
-                    >
-                      CONNECT
-                    </StyledButton>
-                    {blockchain.errorMsg !== "" ? (
-                      <>
-                        <s.SpacerSmall />
-                        <s.TextDescription
-                          style={{
-                            textAlign: "center",
-                            color: "var(--accent-text)",
-                          }}
-                        >
-                          {blockchain.errorMsg}
-                        </s.TextDescription>
-                      </>
-                    ) : null}
-                  </s.Container>
-                ) : (
-                  <>
-                    <s.TextDescription
-                      style={{
-                        textAlign: "center",
-                        color: "var(--accent-text)",
-                      }}
-                    >
-                      {feedback}
-                    </s.TextDescription>
-                    <s.SpacerMedium />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledRoundButton
-                        style={{ lineHeight: 0.4 }}
-                        disabled={claimingNft ? 1 : 0}
+    <div>
+        <nav className="navbar">
+          <div className="navbar-container container">
+            <input type="checkbox" name="" id="" />
+
+            {/* <ul className="menu-items">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Category</a></li>
+              <button><a href="#">Contact</a></button>
+            </ul> */}
+            
+            <h1 className="logo">NAGA | DAO</h1>
+          </div>
+        </nav>
+
+
+        <section className="wave-section">
+
+        <div className="mint-interface">
+              {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
+                <div>
+                  <div>
+                    The sale has ended.
+                  </div>
+
+                    You can still find {CONFIG.NFT_NAME} on
+
+                  <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
+                    {CONFIG.MARKETPLACE}
+                  </StyledLink>
+                </div>
+              ) : (
+                <div>
+
+                  {blockchain.account === "" ||
+                  blockchain.smartContract === null ? (
+                    <div className="connect-div">
+
+                      <button className="buy-btn"
                         onClick={(e) => {
                           e.preventDefault();
-                          decrementMintAmount();
-                        }}
-                      >
-                        -
-                      </StyledRoundButton>
-                      <s.SpacerMedium />
-                      <s.TextDescription
-                        style={{
-                          textAlign: "center",
-                          color: "var(--accent-text)",
-                        }}
-                      >
-                        {mintAmount}
-                      </s.TextDescription>
-                      <s.SpacerMedium />
-                      <StyledRoundButton
-                        disabled={claimingNft ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          incrementMintAmount();
-                        }}
-                      >
-                        +
-                      </StyledRoundButton>
-                    </s.Container>
-                    <s.SpacerSmall />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledButton
-                        disabled={claimingNft ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          claimNFTs();
+                          dispatch(connect());
                           getData();
                         }}
                       >
-                        {claimingNft ? "BUSY" : "BUY"}
-                      </StyledButton>
-                    </s.Container>
-                  </>
-                )}
-              </>
-            )}
-            <s.SpacerMedium />
-          </s.Container>
-          <s.SpacerLarge />
-          <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg
-              alt={"example"}
-              src={"/config/images/example.gif"}
-              style={{ transform: "scaleX(-1)" }}
-            />
-          </s.Container>
-        </ResponsiveWrapper>
-        <s.SpacerMedium />
-        <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
-          <s.TextDescription
-            style={{
-              textAlign: "center",
-              color: "var(--primary-text)",
-            }}
-          >
-            Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
-            Once you make the purchase, you cannot undo this action.
-          </s.TextDescription>
-          <s.SpacerSmall />
-          <s.TextDescription
-            style={{
-              textAlign: "center",
-              color: "var(--primary-text)",
-            }}
-          >
-            We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
-            successfully mint your NFT. We recommend that you don't lower the
-            gas limit.
-          </s.TextDescription>
-        </s.Container>
-      </s.Container>
-    </s.Screen>
+                        CONNECT
+                      </button>
+
+                      <div className="connect-div-p">
+                        Connect to the Ethereum network
+                        </div>
+
+                      {blockchain.errorMsg !== "" ? (
+                        <div>
+                            {blockchain.errorMsg}
+                        </div>
+                      ) : null}
+                    </div>
+                  ) : (
+                      <div>
+
+                        {/* {feedback} */}
+
+                      <div className="mint-amount">
+                        <button
+                          style={{ lineHeight: 0.4 }}
+                          disabled={claimingNft ? 1 : 0}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            decrementMintAmount();
+                          }}
+                        >
+                          −
+                        </button>
+
+                          {mintAmount}
+
+                        <button
+                          disabled={claimingNft ? 1 : 0}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            incrementMintAmount();
+                          }}
+                        >
+                          +
+                        </button>
+                      </div>
+
+                      <div>
+                        <button
+                          className="buy-btn"
+                          disabled={claimingNft ? 1 : 0}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            claimNFTs();
+                            getData();
+                          }}
+                        >
+                          {claimingNft ? "BUSY" : "BUY"}
+                        </button>
+                      </div>
+
+                      {feedback}
+                    </div>
+                  )}
+                </div>
+              )}
+        </div>
+
+          <a href="game/nagarun.html" className="nagasec move">
+            <img className="nagasec nagaimg" src={nagaImg01} alt="" />
+          </a>
+
+          <div className="wave wave1" />
+          <div className="wave wave2" />
+          <div className="wave wave3" />
+          <div className="wave wave4" />
+          <div className="wave wave5" />
+          <div className="wave wave6" />
+        </section>
+
+
+        <div className="bot-nav-container">
+          <div className="bot-nav">
+            {/* <div className="bot-nav-address">
+              <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
+                  contract adddress: {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
+                </StyledLink>
+            </div> */}
+              <div className="bot-nav-minted">
+                {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+              </div>
+
+              <div className="bot-nav-price">
+              1 {CONFIG.SYMBOL} ☰ {CONFIG.DISPLAY_COST}{" "}
+                    {CONFIG.NETWORK.SYMBOL}
+              </div>
+
+          </div>
+        </div>
+
+
+      <section className="section">
+        <div className="section-inner">
+          <div className="inner-text">
+            <h2>What is Naga DAO?</h2>
+            <p>
+              Naga DAO is an organization operating under the concept of
+              Decentralized Autonomous Organization (DAO) which is a group of people
+              working together using Blockchain technology as a tool. Decentralized
+              the power of the founder and spread it to other members.{" "}
+            </p>
+            <p>
+              It's like a club where people can work together from all over the
+              world without using trust but relying on verifiable transparency on
+              the Blockchain.
+            </p>
+          </div>
+          <div className="inner-img">
+            <img src={Item1} alt="" />
+          </div>
+        </div>
+      </section>
+      <section className="section" style={{ backgroundColor: "aliceblue" }}>
+        <div className="section-inner">
+          <div className="inner-img">
+            <img src={Item1} alt="" />
+          </div>
+          <div className="inner-text alter">
+            <h2>Naga DAO's Goal</h2>
+            <p>Naga DAO was created to be a Thai NFT Incubator for all people.</p>
+            <p>
+              It is a group of people who believe in NFT technology and want to
+              deliver opportunity to everyone who wants to find an opportunity to
+              earn money with NFT. and to cooperate in educating and help anyone who
+              wants to learn about NFT.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="section-inner">
+          <table>
+            <tbody>
+              <tr>
+                <th>Type</th>
+                <th>&nbsp;</th>
+                <th>Variation</th>
+                <th>&nbsp;</th>
+              </tr>
+              <tr>
+                <td>1,000</td>
+                <td>Total Naga</td>
+                <td>60</td>
+                <td>Body</td>
+              </tr>
+              <tr>
+                <td>Common</td>
+                <td>TBD</td>
+                <td>50</td>
+                <td>Cheek</td>
+              </tr>
+              <tr>
+                <td>Uncommon</td>
+                <td>TBD</td>
+                <td>30</td>
+                <td>Eyes</td>
+              </tr>
+              <tr>
+                <td>Rare</td>
+                <td>TBD</td>
+                <td>20</td>
+                <td>Mouths</td>
+              </tr>
+              <tr>
+                <td>Ultra Rare</td>
+                <td>TBD</td>
+                <td>10</td>
+                <td>Clothes</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>8</td>
+                <td>Background</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section className="section" style={{ backgroundColor: "aliceblue" }}>
+        <div className="section-inner">
+          <div className="inner-text">
+            <h2>Naga DAO NFT</h2>
+            <p>
+              Naga DAO will have a total of 10K NFTs for members. Whitelists can be
+              requested by working within the group. March 2nd is the day that
+              whitelisters can mint through website for 0.03 ETH and March 3rd for
+              Public Sale all NFT will be on Polygon Chain.
+            </p>
+            <p>
+              Naga NFT holders will receive special privileges such as meeting with
+              the team to advise on the project. Access to exclusive members-only
+              events, access to team-based Research NFT projects, and access to
+              Naga's Metaverse will be built on the sandbox.
+            </p>
+          </div>
+          <div className="inner-img">
+            <img src={Item1} alt="" />
+          </div>
+        </div>
+      </section>
+
+    </div>
   );
 }
 

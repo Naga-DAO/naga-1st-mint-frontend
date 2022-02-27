@@ -1,0 +1,574 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+box-sizing: border-box;
+}
+/*
+2. Remove default margin
+*/
+* {
+margin: 0;
+}
+/*
+3. Allow percentage-based heights in the application
+*/
+html, body {
+height: 100%;
+}
+/*
+Typographic tweaks!
+4. Add accessible line-height
+5. Improve text rendering
+*/
+body {
+line-height: 1.5;
+-webkit-font-smoothing: antialiased;
+}
+/*
+6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+}
+/*
+7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+font: inherit;
+}
+/*
+8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+overflow-wrap: break-word;
+}
+/*
+9. Create a root stacking context
+*/
+
+
+/* Scrollbar */
+::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 8px;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: black;
+}
+/* Scrollbar */
+
+
+body {
+    font-family: "Roboto Mono", sans-serif;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    font-size: 22px;
+}
+
+/* .header-section {
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.884);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.mint-interface {
+    position: absolute;
+    z-index: 9999;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 15px;
+}
+
+.header-section .lol {
+    background-color: green;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+.section .section-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 110px 20px;
+}
+
+h2 {
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.section-inner .inner-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section {
+    display: block;
+}
+
+.section .section-inner {
+    padding: 80px 30px;
+}
+
+.bot-nav-container {
+    z-index: 3000;
+    background-color: #4b74b1;
+}
+
+.bot-nav-container .bot-nav {
+    height: auto;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+
+.bot-nav {
+    /* background-color: lightgreen; */ 
+    /* for minted info */
+    height: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bot-nav p {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+/* .mint {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    color: black;
+    z-index: 2000;
+} */
+
+/* water */
+/* water */
+/* water */
+
+
+.wave-section {
+    position: relative;
+    /* width: 100%; */
+    /* height: 100vh; */
+    overflow: hidden;
+    background-image: url("NFTwall-01.png");
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 520px;
+}
+
+.wave-section .nagasec {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    /* dino size  */
+    /* background-color: #3586ff; */
+}
+
+.wave-section .nagasec.move {
+    animation: 
+    animate3 110s linear infinite, 
+    animateNaga 5s alternate ease infinite;
+    z-index: 1002;
+    opacity: 1;
+    animation-delay: 0s;
+    /* bottom: 20 */
+    transform: rotate(-33deg);
+    cursor: grab;
+}
+
+.wave-section .nagasec.nagaimg {
+    animation: animateRotate 8s alternate ease infinite;
+    opacity: 1;
+    animation-delay: -2s;
+    bottom: -70px;
+    transform: rotate(-33deg);
+}
+
+@keyframes animateNaga {
+    0% {
+        bottom: 45px;
+    }
+    
+    100% {
+        bottom: 30px
+    }
+}
+
+@keyframes animateRotate {
+    0% {
+        transform: rotate(-33deg);
+    }
+    
+    100% {
+        transform: rotate(33deg);
+    }
+}
+
+@keyframes animate3 {
+    0% 
+    {
+        transform: translateX(-4vw);
+    }
+    100% 
+    {
+        transform: translateX(104vw);
+    }
+}
+
+.wave-section .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url("wave.png");
+    background-size: 1000px 100px;
+    /* background-color: #3586ff; */
+    
+    --bottom: -50px; 
+    /* adjusting wave starting bottom */
+}
+
+.wave-section .wave.wave1 {
+    animation: animate 30s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: calc(-10px + var(--bottom));
+}
+
+.wave-section .wave.wave2 {
+    animation: animate2 15s linear infinite;
+    z-index: 999;
+    opacity: 0.8;
+    animation-delay: -5s;
+    bottom: calc(-10px + var(--bottom));
+}
+
+.wave-section .wave.wave3 {
+    animation: animate 30s linear infinite;
+    z-index: 997;
+    opacity: 0.4;
+    animation-delay: -2s;
+    bottom: calc(-15px + var(--bottom));
+}
+
+.wave-section .wave.wave4 {
+    animation: animate2 10s linear infinite;
+    z-index: 996;
+    opacity: 0.7;
+    animation-delay: -9s;
+    bottom: calc(-20px + var(--bottom));
+}
+
+.wave-section .wave.wave5 {
+    animation: animate 15s linear infinite;
+    z-index: 995;
+    opacity: 0.6;
+    animation-delay: -3s;
+    bottom: calc(-10px + var(--bottom));
+}
+
+.wave-section .wave.wave6 {
+    animation: animate2 25s linear infinite;
+    z-index: 994;
+    opacity: 0.7;
+    animation-delay: -7s;
+    bottom: calc(-5px + var(--bottom));
+}
+
+@keyframes animate {
+    0%
+    {
+        background-position-x: 0;
+    }
+    100%
+    {
+        background-position-x: 1000px;
+    }
+}
+
+@keyframes animate2 {
+    0%
+    {
+        background-position-x: 0;
+    }
+    100%
+    {
+        background-position-x: -1000px;
+    }
+}
+
+.bot-nav-container .bot-nav .bot-nav-minted {
+    font-family: 'Heebo', sans-serif;
+}
+
+.bot-nav .bot-nav-minted, .bot-nav .bot-nav-price {
+    margin: 0 auto;
+}
+
+/* need adjust code */
+@media screen and (min-width: 1000px) {
+    .bot-nav-minted, .bot-nav .bot-nav-price {
+        width: 500px
+    }
+}
+
+.cp-mint-details .cp-mint-details-inner .cp-mint-details__detail {
+    font-size: 40px;
+    line-height: 60px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+}
+
+/* need adjust */
+
+
+@media all and (min-width: 850px) {
+
+    .bot-nav-container .bot-nav {
+        color: white;
+        padding: 0;
+        height: 125px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-flow: nowrap;
+    }
+
+    .bot-nav .bot-nav-minted {
+        
+        font-size: 70px;
+        line-height: 50px;
+        width: 50%;
+        text-shadow: #252525 4px 3px 0;
+    }
+
+    .bot-nav .bot-nav-minted::after {
+        margin-left: 10px;
+        content: "minted";
+        font-size: 15px;
+        opacity: 0.8;
+        text-shadow: #25252500 4px 3px 0;
+    }
+
+    .bot-nav .bot-nav-price {
+        font-size: 50px;
+        line-height: 40px;
+        text-shadow: #252525 4px 3px 0;
+    }
+
+    .wave-section {
+        height: calc(100vh - 190px);
+    }
+
+    body {
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    .section .section-inner {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 110px 20px;
+        }
+
+    .section-inner .inner-text p {
+            font-size: 24px;
+            line-height: 33px;
+            margin-bottom: 40px;
+        }
+
+    .section-inner .inner-img {
+            width: 500px;
+        }
+
+    .section-inner .inner-text {
+        width: calc(100% - 580px);
+    }
+    }
+
+@media all and (max-width: 560px) {
+
+    .section-inner .inner-text p {
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+}
+
+.navbar input[type="checkbox"] {
+  display: none;
+}
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: auto;
+}
+
+.navbar {
+  width: 100%;
+  background: #212c5f;
+  color: #fff;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.logo {
+  order: 1;
+  font-size: 1.8rem;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #0088a9;
+}
+
+@media (max-width: 800px) {
+  .navbar-container input[type="checkbox"] {
+    display: block;
+  }
+
+  .navbar-container {
+    display: block;
+    position: relative;
+    height: 64px;
+  }
+
+  .navbar-container input[type="checkbox"] {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 30px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 1.7rem;
+  }
+}
+
+
+.mint-amount button {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.mint-amount button:hover {
+    cursor: pointer;
+}
+
+.buy-btn {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: Heebo , monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.buy-btn:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.buy-btn:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.buy-btn:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}

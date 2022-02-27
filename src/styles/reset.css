@@ -1,4 +1,4 @@
-html,
+/* html,
 body,
 div,
 span,
@@ -86,7 +86,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+/* HTML5 display-role reset for older browsers 
 article,
 aside,
 details,
@@ -152,8 +152,8 @@ body::-webkit-scrollbar {
 }
 
 body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge 
+  scrollbar-width: none; /* Firefox
 }
 
 html {
@@ -166,4 +166,4 @@ div {
   -ms-user-select: none;
   user-select: none;
   -o-user-select: none;
-}
+} */
