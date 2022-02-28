@@ -1,16 +1,17 @@
 {
-  "CONTRACT_ADDRESS": "0x07277f820a3e8f8d73a391ee920f776234ae2cb3",
-  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x07277f820a3e8f8d73a391ee920f776234ae2cb3",
+  "CONTRACT_ADDRESS": "0x7EDAD6afb9EAAeBE666118761B26e455B5ef0094",
+  "WETH_CONTRACT_ADDRESS": "0xfe4F5145f6e09952a5ba9e956ED0C25e3Fa4c7F1",
+  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x7EDAD6afb9EAAeBE666118761B26e455B5ef0094",
   "NETWORK": {
-    "NAME": "Ethereum",
-    "SYMBOL": "ETH",
-    "ID": 4
+    "NAME": "Polygon",
+    "SYMBOL": "WETH",
+    "ID": 80001
   },
   "NFT_NAME": "NagaDAO",
   "SYMBOL": "NG",
-  "MAX_SUPPLY": 20,
-  "WEI_COST": 1000000000000000,
-  "DISPLAY_COST": 0.001,
+  "MAX_SUPPLY": 1000,
+  "WEI_COST": 30000000000000000,
+  "DISPLAY_COST": 0.03,
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opeansea",
   "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/nagatest",

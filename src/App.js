@@ -40,6 +40,7 @@ function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
+  const [approved, setApproved] = useState(false);
   const [claimingNft, setClaimingNft] = useState(false);
   const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
@@ -77,7 +78,6 @@ function App() {
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
-        value: totalCostWei,
       })
       .once("error", (err) => {
         console.log(err);
@@ -91,6 +91,39 @@ function App() {
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
+      });
+  };
+
+  const approve = () => {
+    let cost = CONFIG.WEI_COST;
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalCostWei = String(cost * mintAmount);
+    let totalGasLimit = String(gasLimit * mintAmount);
+    console.log("Cost: ", totalCostWei);
+    console.log("Gas limit: ", totalGasLimit);
+    setFeedback(`Approving WETH for ${CONFIG.NFT_NAME}...`);
+    setClaimingNft(true);
+    console.log(blockchain)
+    blockchain.tokenContract.methods
+      .approve(CONFIG.CONTRACT_ADDRESS, "1000000000000000000000000000000")
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, something went wrong please try again later.");
+        setClaimingNft(false);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(
+          `WETH approved, let mint ${CONFIG.NFT_NAME}.`
+        );
+        setClaimingNft(false);
+        dispatch(fetchData(blockchain.account));
+        setApproved(true);
       });
   };
 
@@ -226,20 +259,38 @@ function App() {
                       </div>
 
                       <div>
-                        <button
-                          className="buy-btn"
-                          disabled={claimingNft ? 1 : 0}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            claimNFTs();
-                            getData();
-                          }}
-                        >
-                          {claimingNft ? "BUSY" : "BUY"}
-                        </button>
+                        {!approved &&
+                          <button
+                            className="buy-btn"
+                            disabled={claimingNft ? 1 : 0}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              approve();
+                              getData();
+                            }}
+                          >
+                            {claimingNft ? "APPROVING..." : "APPROVE"}
+                          </button>
+                        }
+
+                        {approved &&
+                          <button
+                            className="buy-btn"
+                            disabled={claimingNft ? 1 : 0}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              claimNFTs();
+                              getData();
+                            }}
+                          >
+                            {claimingNft ? "BUYING..." : "BUY"}
+                          </button>
+                        }
                       </div>
 
                       {feedback}
+
+                      <div>Connected to {blockchain.account}</div>
                     </div>
                   )}
                 </div>
