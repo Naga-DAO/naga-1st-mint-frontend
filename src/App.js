@@ -267,7 +267,7 @@ function App() {
                               getData();
                             }}
                           >
-                            {claimingNft ? "APPROVING..." : "APPROVE"}
+                            {claimingNft ? "APPROVING..." : "APPROVE WETH"}
                           </button>
                         }
 
