@@ -15,6 +15,7 @@ import nagaLogo from "./styles/Draft_2-04.png"
 import facebookIcon from "./styles/facebook-round-color.svg"
 import discordIcon from "./styles/discord.svg"
 import twitterIcon from "./styles/twitter-round-color.svg"
+// import { PresentToAll } from "@mui/icons-material";
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -49,6 +50,7 @@ function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
+  const [preSaleNum, setPreSaleNum] = useState(0);
   const [approved, setApproved] = useState(false);
   const [claimingNft, setClaimingNft] = useState(false);
   const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
@@ -154,6 +156,10 @@ function App() {
     setMintAmount(newMintAmount);
   };
 
+  const initPreSaleNum = () => {
+    setPreSaleNum(32);
+  }
+
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       dispatch(fetchData(blockchain.account));
@@ -217,6 +223,7 @@ function App() {
                           e.preventDefault();
                           dispatch(connect());
                           getData();
+                          initPreSaleNum();
                         }}
                       >
                         CONNECT
@@ -328,7 +335,7 @@ function App() {
                 </StyledLink>
             </div> */}
               <div className="bot-nav-minted">
-                {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+                {Number(data.totalSupply) + preSaleNum} / {CONFIG.MAX_SUPPLY}
               </div>
 
               <div className="bot-nav-price">
