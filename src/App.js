@@ -43,6 +43,8 @@ export const StyledLink = styled.a`
 
 `;
 
+const PUBLIC_SALE = false;
+
 function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
@@ -142,10 +144,12 @@ function App() {
     setMintAmount(newMintAmount);
   };
 
+  const maxMint = PUBLIC_SALE ? 10 : data.whitelist ?? 0;
+
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 10) {
-      newMintAmount = 10;
+    if (newMintAmount > maxMint) {
+      newMintAmount = maxMint;
     }
     setMintAmount(newMintAmount);
   };
@@ -174,6 +178,8 @@ function App() {
   useEffect(() => {
     getData();
   }, [blockchain.account]);
+
+  console.log(blockchain);
 
   return (
     <div className="all-wrapper">
@@ -227,6 +233,7 @@ function App() {
                       ) : null}
                     </div>
                   ) : (
+                    data.whitelist > 0 ? (<>
                       <div className="after-connected">
 
                         {/* {feedback} */}
@@ -290,7 +297,12 @@ function App() {
 
                       <div className="connected-to">Connected to {blockchain.account}</div>
                     </div>
-                  )}
+                    </>) : (<>
+                      <div className="after-connected">
+                        <div className="mint-amount">Your mint quota has exceeded</div>
+                        <div className="connected-to">Connected to {blockchain.account}</div>
+                      </div>
+                    </>))}
                 </div>
               )}
         </div>

@@ -34,9 +34,17 @@ export const fetchData = () => {
       //   .blockchain.smartContract.methods.cost()
       //   .call();
 
+      let whitelist = await store
+        .getState()
+        .blockchain.smartContract.methods.whitelist(store.getState().blockchain.account)
+        .call();
+
+      console.log("WHITELIST", whitelist, store.getState().blockchain.account)
+
       dispatch(
         fetchDataSuccess({
           totalSupply,
+          whitelist,
           // cost,
         })
       );

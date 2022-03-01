@@ -1,11 +1,11 @@
 {
-  "CONTRACT_ADDRESS": "0xeE56351812dcBd447FE1b3B36951744F8422a693",
-  "WETH_CONTRACT_ADDRESS": "0xfe4F5145f6e09952a5ba9e956ED0C25e3Fa4c7F1",
-  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x7EDAD6afb9EAAeBE666118761B26e455B5ef0094",
+  "CONTRACT_ADDRESS": "0x685764D3EBde47f0A18Db60EecaF223a63825ff6",
+  "WETH_CONTRACT_ADDRESS": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+  "SCAN_LINK": "https://polygonscan.com/address/0x046976f19a14ee7d06cb9e983c8142fb2aac0e5e",
   "NETWORK": {
     "NAME": "Polygon",
     "SYMBOL": "WETH",
-    "ID": 80001
+    "ID": 137
   },
   "NFT_NAME": "NagaDAO",
   "SYMBOL": "NG",
@@ -14,6 +14,6 @@
   "DISPLAY_COST": 0.03,
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/nagatest",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/naga-dao",
   "SHOW_BACKGROUND": false
 }
