@@ -16,6 +16,10 @@ margin: 0;
 html, body {
 height: 100%;
 }
+
+.all-wrapper {
+    overflow-x: hidden;
+}
 /*
 Typographic tweaks!
 4. Add accessible line-height
@@ -24,6 +28,7 @@ Typographic tweaks!
 body {
 line-height: 1.5;
 -webkit-font-smoothing: antialiased;
+/* overflow-x: hidden; */
 }
 /*
 6. Improve media defaults
@@ -91,12 +96,12 @@ p {
 .mint-interface {
     position: absolute;
     z-index: 9999;
-    top: 85%;
+    bottom: 18%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
     text-align: center;
     color: white;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .header-section .lol {
@@ -134,7 +139,7 @@ h2 {
 
 .bot-nav-container {
     z-index: 3000;
-    background-color: #4b74b1;
+    /* background-color: #4b74b1; */
 }
 
 .bot-nav-container .bot-nav {
@@ -180,7 +185,8 @@ h2 {
     /* width: 100%; */
     /* height: 100vh; */
     overflow: hidden;
-    background-image: url("NFTwall-01.png");
+    /* background-image: url("NFTwall-01.png"); */
+    background-color: #00100f;
     background-size: cover;
     background-position: 50% 50%;
     width: 100%;
@@ -191,7 +197,7 @@ h2 {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 50px;
+    width: 60px;
     /* dino size  */
     /* background-color: #3586ff; */
 }
@@ -214,6 +220,7 @@ h2 {
     animation-delay: -2s;
     bottom: -70px;
     transform: rotate(-33deg);
+    z-index: 999999;
 }
 
 @keyframes animateNaga {
@@ -253,7 +260,7 @@ h2 {
     left: 0;
     width: 100%;
     height: 100px;
-    background: url("wave.png");
+    background: url("wave-white.png");
     background-size: 1000px 100px;
     /* background-color: #3586ff; */
     
@@ -335,6 +342,10 @@ h2 {
     font-family: 'Heebo', sans-serif;
 }
 
+.bot-nav-container .bot-nav .bot-nav-minted::after {
+    content: " minted";
+}
+
 .bot-nav .bot-nav-minted, .bot-nav .bot-nav-price {
     margin: 0 auto;
 }
@@ -356,78 +367,6 @@ h2 {
 }
 
 /* need adjust */
-
-
-@media all and (min-width: 850px) {
-
-    .bot-nav-container .bot-nav {
-        color: white;
-        padding: 0;
-        height: 125px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        flex-flow: nowrap;
-    }
-
-    .bot-nav .bot-nav-minted {
-        
-        font-size: 70px;
-        line-height: 50px;
-        width: 50%;
-        text-shadow: #252525 4px 3px 0;
-    }
-
-    .bot-nav .bot-nav-minted::after {
-        margin-left: 10px;
-        content: "minted";
-        font-size: 15px;
-        opacity: 0.8;
-        text-shadow: #25252500 4px 3px 0;
-    }
-
-    .bot-nav .bot-nav-price {
-        font-size: 50px;
-        line-height: 40px;
-        text-shadow: #252525 4px 3px 0;
-    }
-
-    .wave-section {
-        height: calc(100vh - 190px);
-    }
-
-    body {
-        font-size: 1.5rem;
-        line-height: 1.5;
-    }
-
-    h2 {
-        font-size: 40px;
-    }
-
-    .section .section-inner {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
-            align-items: center;
-            padding: 110px 20px;
-        }
-
-    .section-inner .inner-text p {
-            font-size: 24px;
-            line-height: 33px;
-            margin-bottom: 40px;
-        }
-
-    .section-inner .inner-img {
-            width: 500px;
-        }
-
-    .section-inner .inner-text {
-        width: calc(100% - 580px);
-    }
-    }
 
 @media all and (max-width: 560px) {
 
@@ -454,7 +393,8 @@ h2 {
 
 .navbar {
   width: 100%;
-  background: #212c5f;
+  /* background: #212c5f; */
+  background: #00100f;
   color: #fff;
 }
 
@@ -481,38 +421,6 @@ h2 {
   color: #0088a9;
 }
 
-@media (max-width: 800px) {
-  .navbar-container input[type="checkbox"] {
-    display: block;
-  }
-
-  .navbar-container {
-    display: block;
-    position: relative;
-    height: 64px;
-  }
-
-  .navbar-container input[type="checkbox"] {
-    position: absolute;
-    display: block;
-    height: 32px;
-    width: 30px;
-    top: 20px;
-    left: 20px;
-    z-index: 5;
-    opacity: 0;
-    cursor: pointer;
-  }
-  
-  .logo {
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    font-size: 1.7rem;
-  }
-}
-
-
 .mint-amount button {
     margin-left: 10px;
     margin-right: 10px;
@@ -526,7 +434,7 @@ h2 {
     cursor: pointer;
 }
 
-.buy-btn {
+/* .buy-btn {
   align-items: center;
   appearance: none;
   background-color: #FCFCFD;
@@ -571,4 +479,291 @@ h2 {
 .buy-btn:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
+} */
+
+.img-resize-mobile {
+    width: 300px;
+}
+
+
+.nagaEgg > img {
+    position: absolute;
+    width: 150px;
+    left:0;
+    right: 0;
+    bottom: 50%;
+    margin: 0 auto;
+}
+
+.glow-on-hover {
+    width: 200px;
+    height: 50px;
+    border: 2px solid white;
+    outline: none;
+    color: #fff;
+    background: #00100f;
+    cursor: pointer;
+    position: relative;
+    /* z-index: 0; */
+    border-radius: 10px;
+    left:0;
+    right: 0;
+    bottom: 45%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .6s ease-in-out;
+    border-radius: 15px;
+}
+
+.glow-on-hover:active {
+    color: #00100f
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.connected-to {
+    font-size: 12px;
+}
+
+.after-connected > * {
+    margin: 10px;
+}
+
+.after-connected > .mint-btn {
+    margin: 0;
+}
+
+.nagaLogo {
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: 11000;
+    width: 160px;
+    padding: 10px 
+}
+
+
+@media all and (min-width: 850px) {
+
+    .bot-nav-container .bot-nav {
+        color: #00100f;
+        padding: 0;
+        height: 15vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-flow: nowrap;
+    }
+
+    .bot-nav .bot-nav-minted {
+        
+        font-size: 70px;
+        line-height: 50px;
+        width: 50%;
+        /* text-shadow: #252525 4px 3px 0; */
+    }
+
+    .bot-nav .bot-nav-minted::after {
+        margin-left: 10px;
+        content: "minted";
+        font-size: 15px;
+        opacity: 0.8;
+        /* text-shadow: #25252500 4px 3px 0; */
+    }
+
+    .bot-nav .bot-nav-price {
+        font-size: 50px;
+        line-height: 40px;
+        font-family: Heebo , monospace;
+        /* text-shadow: #252525 4px 3px 0; */
+    }
+
+    .wave-section {
+        height: calc(85vh);
+    }
+
+    body {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        /* overflow-x: hidden; */
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    .section .section-inner {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 110px 20px;
+        }
+
+    .section-inner .inner-text p {
+            font-size: 24px;
+            line-height: 33px;
+            margin-bottom: 40px;
+        }
+
+    .section-inner .inner-img {
+            width: 500px;
+        }
+
+    .section-inner .inner-text {
+        width: calc(100% - 580px);
+    }
+
+    .connected-to {
+    font-size: 16px;
+    }
+
+    .after-connected > * {
+        margin: 20px;
+    }
+
+    .after-connected > .mint-btn {
+        margin: 0;
+    }
+
+    .nagaLogo {
+        position: absolute;
+        left:0;
+        top:0;
+        z-index: 11000;
+        width: 160px;
+        padding: 15px 
+    }
+
+    .connected-to {
+        font-size: 16px;
+    }
+
+    .after-connected > * {
+        margin: 20px;
+    }
+
+    .after-connected > .mint-btn {
+        margin: 0;
+    }
+
+    .nagaLogo {
+        position: absolute;
+        left:0;
+        top:0;
+        z-index: 11000;
+        width: 160px;
+        padding: 15px 
+    }
+
+    .nagaEgg > img {
+        position: absolute;
+        width: 300px;
+        left:0;
+        right: 0;
+        bottom: 50%;
+        margin: 0 auto;
+    }
+
+    .mint-interface {
+        position: absolute;
+        z-index: 9999;
+        bottom: 18%;
+        left: 50%;
+        transform: translate(-50%);
+        text-align: center;
+        color: white;
+        font-size: 24px;
+    }
+
+    /* .nagaEgg {
+        width: 280px;
+    } */
+
+}
+
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 80px;
+}
+
+.footer > a {
+    margin: 5%;
+}
+
+.a-link > img{
+    width: 50px;
+}
+
+.footer-div-p {
+    padding-bottom: 20px;
+    color: white;
+    width: 100px;
+    margin: 0 auto;
+    white-space: nowrap
+}
+
+.footer .icon {
+    display: flex;
+}
+
+.footer .icon > a {
+    margin: 0% 5%;
+}
+
+.nagaLogo {
+    color: white;
+}
+
+.text{
+    text-align: center;
+}
+
+.text p:first-child {
+    text-decoration: underline ;
+}
+
+.random-item {
+    width: 500px;
 }

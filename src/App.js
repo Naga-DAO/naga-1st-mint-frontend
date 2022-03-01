@@ -6,8 +6,15 @@ import * as s from "./styles/globalStyles";
 import styled from "styled-components";
 
 import nagaImg01 from "./styles/img/Naga_21-22.png"
-import Item1 from "./styles/img/item1.png"
-
+import pic1 from "./styles/img/item1.png"
+import pic2 from "./styles/img/Character-02.png"
+import pic3 from "./styles/img/Character-05.png"
+import nagaEgg from "./styles/Egg-04.png"
+import eggGif from "./styles/naga-egg.gif"
+import nagaLogo from "./styles/Draft_2-04.png"
+import facebookIcon from "./styles/facebook-round-color.svg"
+import discordIcon from "./styles/discord.svg"
+import twitterIcon from "./styles/twitter-round-color.svg"
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -169,24 +176,15 @@ function App() {
   }, [blockchain.account]);
 
   return (
-    <div>
-        <nav className="navbar">
-          <div className="navbar-container container">
-            <input type="checkbox" name="" id="" />
-
-            {/* <ul className="menu-items">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Category</a></li>
-              <button><a href="#">Contact</a></button>
-            </ul> */}
-            
-            <h1 className="logo">NAGA | DAO</h1>
-          </div>
-        </nav>
-
-
+    <div className="all-wrapper">
+      <div className="nagaLogo">
+      <img src={nagaLogo} alt="" />
+      </div>
         <section className="wave-section">
+
+        <div className="nagaEgg">
+            <img src={eggGif} alt=""></img>
+        </div>
 
         <div className="mint-interface">
               {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
@@ -208,7 +206,7 @@ function App() {
                   blockchain.smartContract === null ? (
                     <div className="connect-div">
 
-                      <button className="buy-btn"
+                      <button className="buy-btn glow-on-hover"
                         onClick={(e) => {
                           e.preventDefault();
                           dispatch(connect());
@@ -219,7 +217,7 @@ function App() {
                       </button>
 
                       <div className="connect-div-p">
-                        Connect to the Ethereum network
+                        Connect to the Polygon Network
                         </div>
 
                       {blockchain.errorMsg !== "" ? (
@@ -229,7 +227,7 @@ function App() {
                       ) : null}
                     </div>
                   ) : (
-                      <div>
+                      <div className="after-connected">
 
                         {/* {feedback} */}
 
@@ -258,10 +256,10 @@ function App() {
                         </button>
                       </div>
 
-                      <div>
+                      <div className="mint-btn">
                         {!approved &&
                           <button
-                            className="buy-btn"
+                            className="buy-btn glow-on-hover"
                             disabled={claimingNft ? 1 : 0}
                             onClick={(e) => {
                               e.preventDefault();
@@ -290,14 +288,14 @@ function App() {
 
                       {feedback}
 
-                      <div>Connected to {blockchain.account}</div>
+                      <div className="connected-to">Connected to {blockchain.account}</div>
                     </div>
                   )}
                 </div>
               )}
         </div>
 
-          <a href="game/nagarun.html" className="nagasec move">
+          <a className="nagasec move">
             <img className="nagasec nagaimg" src={nagaImg01} alt="" />
           </a>
 
@@ -346,15 +344,23 @@ function App() {
               the Blockchain.
             </p>
           </div>
-          <div className="inner-img">
-            <img src={Item1} alt="" />
+          <div className="inner-img"
+          data-aos="fade-down-left" 
+          data-aos-duration="1000" 
+          data-aos-once="true" 
+          data-aos-anchor-placement="top-center">
+            <img src={pic2} alt="" className="img-resize-mobile"/>
           </div>
         </div>
       </section>
-      <section className="section" style={{ backgroundColor: "aliceblue" }}>
+      <section className="section" style={{ backgroundColor: "#c4dbcc" }}>
         <div className="section-inner">
-          <div className="inner-img">
-            <img src={Item1} alt="" />
+          <div className="inner-img"
+          data-aos="fade-down-right" 
+          data-aos-duration="1000" 
+          data-aos-once="true" 
+          data-aos-anchor-placement="top-center">
+            <img src={pic1} alt="" />
           </div>
           <div className="inner-text alter">
             <h2>Naga DAO's Goal</h2>
@@ -368,7 +374,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="section">
+      {/* <section className="section">
         <div className="section-inner">
           <table>
             <tbody>
@@ -417,8 +423,8 @@ function App() {
             </tbody>
           </table>
         </div>
-      </section>
-      <section className="section" style={{ backgroundColor: "aliceblue" }}>
+      </section> */}
+      <section className="section">
         <div className="section-inner">
           <div className="inner-text">
             <h2>Naga DAO NFT</h2>
@@ -435,11 +441,38 @@ function App() {
               Naga's Metaverse will be built on the sandbox.
             </p>
           </div>
-          <div className="inner-img">
-            <img src={Item1} alt="" />
+          <div className="inner-img" 
+          data-aos="fade-down-left" 
+          data-aos-duration="1000" 
+          data-aos-once="true" 
+          data-aos-anchor-placement="top-center">
+            <img src={pic3} alt="" className="img-resize-mobile" />
           </div>
         </div>
       </section>
+
+
+      <section className="section" style={{backgroundColor: "#00100f"}}>
+        <div className="footer">
+            <div className="footer-div">
+                <p className="footer-div-p">
+                    Join Us!
+                </p>
+            </div>
+
+            <div className="icon">
+                <a href="https://discord.gg/DF7krb8uNq" className="a-link discord">
+                    <img src={discordIcon} alt=""></img>
+                </a>
+                <a href="https://www.facebook.com/nagadaonft/" className="a-link facebook">
+                    <img src={facebookIcon} alt=""></img>
+                </a>
+                <a href="https://twitter.com/The_NagaDAO" className="a-link twitter">
+                    <img src={twitterIcon} alt=""></img>
+                </a>
+            </div>
+        </div>
+    </section>
 
     </div>
   );
