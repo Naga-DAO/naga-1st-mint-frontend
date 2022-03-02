@@ -42,7 +42,7 @@ export const fetchData = () => {
 
       let approved = await store
         .getState()
-        .blockchain.tokenContract.methods.allowance(store.getState().blockchain.account, "0x685764D3EBde47f0A18Db60EecaF223a63825ff6")
+        .blockchain.tokenContract.methods.allowance(store.getState().blockchain.account, "0xb71751FB0C6551324f2F96040D8c54e9560dBa82")
         .call();
 
       approved = parseFloat(Web3.utils.fromWei(approved)) >= 0.03
