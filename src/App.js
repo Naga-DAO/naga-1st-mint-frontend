@@ -314,7 +314,7 @@ function App() {
               )}
         </div>
 
-          <a className="nagasec move">
+          <a href="https://main.d1rz45xs0420mq.amplifyapp.com/" className="nagasec move">
             <img className="nagasec nagaimg" src={nagaImg01} alt="" />
           </a>
 
