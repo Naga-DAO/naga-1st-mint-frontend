@@ -162,7 +162,7 @@ function App() {
   };
 
   const initPreSaleNum = () => {
-    setPreSaleNum(32);
+    setPreSaleNum(39);
   }
 
   const getData = () => {
