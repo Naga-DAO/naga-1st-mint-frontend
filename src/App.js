@@ -16,6 +16,7 @@ import facebookIcon from "./styles/facebook-round-color.svg"
 import discordIcon from "./styles/discord.svg"
 import twitterIcon from "./styles/twitter-round-color.svg"
 import useInterval from "use-interval";
+// import { PresentToAll } from "@mui/icons-material";
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -51,6 +52,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [approved, setApproved] = useState(data.approved);
+  const [preSaleNum, setPreSaleNum] = useState(0);
   const [claimingNft, setClaimingNft] = useState(false);
   const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
@@ -159,6 +161,10 @@ function App() {
     setMintAmount(newMintAmount);
   };
 
+  const initPreSaleNum = () => {
+    setPreSaleNum(32);
+  }
+
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       dispatch(fetchData(blockchain.account));
@@ -222,6 +228,7 @@ function App() {
                           e.preventDefault();
                           dispatch(connect());
                           getData();
+                          initPreSaleNum();
                         }}
                       >
                         CONNECT
@@ -312,7 +319,7 @@ function App() {
               )}
         </div>
 
-          <a className="nagasec move">
+          <a href="https://main.d1rz45xs0420mq.amplifyapp.com/" className="nagasec move">
             <img className="nagasec nagaimg" src={nagaImg01} alt="" />
           </a>
 
@@ -333,7 +340,7 @@ function App() {
                 </StyledLink>
             </div> */}
               <div className="bot-nav-minted">
-                {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+                {data.whitelist == -1 ? <>... / {CONFIG.MAX_SUPPLY}</> : <>{Number(data.totalSupply) + preSaleNum} / {CONFIG.MAX_SUPPLY}</> }
               </div>
 
               <div className="bot-nav-price">
