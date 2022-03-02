@@ -45,7 +45,7 @@ export const StyledLink = styled.a`
 
 `;
 
-const PUBLIC_SALE = false;
+const PUBLIC_SALE = true;
 
 function App() {
   const dispatch = useDispatch();
@@ -120,6 +120,7 @@ function App() {
     setFeedback(`Approving WETH for ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
     console.log(blockchain)
+    console.log('CONTRACT ADDRESS', CONFIG.CONTRACT_ADDRESS)
     blockchain.tokenContract.methods
       .approve(CONFIG.CONTRACT_ADDRESS, "1000000000000000000000000000000")
       .send({
