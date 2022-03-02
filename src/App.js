@@ -15,6 +15,7 @@ import nagaLogo from "./styles/Draft_2-04.png"
 import facebookIcon from "./styles/facebook-round-color.svg"
 import discordIcon from "./styles/discord.svg"
 import twitterIcon from "./styles/twitter-round-color.svg"
+import useInterval from "use-interval";
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -49,7 +50,7 @@ function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
-  const [approved, setApproved] = useState(false);
+  const [approved, setApproved] = useState(data.approved);
   const [claimingNft, setClaimingNft] = useState(false);
   const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
@@ -71,6 +72,10 @@ function App() {
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
   });
+
+  useEffect(() => {
+    setApproved(data.approved);
+  }, [data.approved]);
 
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
@@ -122,7 +127,7 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, something went wrong please try again later.");
+        setFeedback("Please refresh this page when the approval is confirmed");
         setClaimingNft(false);
       })
       .then((receipt) => {
@@ -175,9 +180,9 @@ function App() {
     getConfig();
   }, []);
 
-  useEffect(() => {
+  useInterval(() => {
     getData();
-  }, [blockchain.account]);
+  }, 3000);
 
   console.log(blockchain);
 
@@ -280,7 +285,7 @@ function App() {
 
                         {approved &&
                           <button
-                            className="buy-btn"
+                            className="buy-btn glow-on-hover"
                             disabled={claimingNft ? 1 : 0}
                             onClick={(e) => {
                               e.preventDefault();
@@ -299,7 +304,7 @@ function App() {
                     </div>
                     </>) : (<>
                       <div className="after-connected">
-                        <div className="mint-amount">Your mint quota has exceeded</div>
+                        <div className="mint-amount">{data.whitelist == -1 ? 'Loading...' : 'Your mint quota has exceeded'}</div>
                         <div className="connected-to">Connected to {blockchain.account}</div>
                       </div>
                     </>))}

@@ -1,4 +1,5 @@
 // log
+import Web3 from "web3";
 import store from "../store";
 
 const fetchDataRequest = () => {
@@ -39,12 +40,22 @@ export const fetchData = () => {
         .blockchain.smartContract.methods.whitelist(store.getState().blockchain.account)
         .call();
 
+      let approved = await store
+        .getState()
+        .blockchain.tokenContract.methods.allowance(store.getState().blockchain.account, "0x685764D3EBde47f0A18Db60EecaF223a63825ff6")
+        .call();
+
+      approved = parseFloat(Web3.utils.fromWei(approved)) >= 0.03
+
       console.log("WHITELIST", whitelist, store.getState().blockchain.account)
+    
+      console.log(approved)
 
       dispatch(
         fetchDataSuccess({
           totalSupply,
           whitelist,
+          approved,
           // cost,
         })
       );

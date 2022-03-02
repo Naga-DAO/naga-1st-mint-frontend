@@ -4,7 +4,7 @@ const initialState = {
   cost: 0,
   error: false,
   errorMsg: "",
-  whitelist: 0,
+  whitelist: -1,
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -22,6 +22,7 @@ const dataReducer = (state = initialState, action) => {
         loading: false,
         totalSupply: action.payload.totalSupply,
         whitelist: action.payload.whitelist,
+        approved: action.payload.approved,
         // cost: action.payload.cost,
         error: false,
         errorMsg: "",
