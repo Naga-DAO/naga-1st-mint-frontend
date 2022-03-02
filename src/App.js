@@ -246,7 +246,7 @@ function App() {
                       ) : null}
                     </div>
                   ) : (
-                    data.whitelist > 0 ? (<>
+                    PUBLIC_SALE || data.whitelist > 0 ? (<>
                       <div className="after-connected">
 
                         {/* {feedback} */}
