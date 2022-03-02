@@ -287,7 +287,7 @@ function App() {
                               getData();
                             }}
                           >
-                            {claimingNft ? "APPROVING..." : "APPROVE WETH"}
+                            {claimingNft ? "APPROVING..." : (data.whitelist == -1 ? 'Loading...' : "APPROVE WETH")}
                           </button>
                         }
 
