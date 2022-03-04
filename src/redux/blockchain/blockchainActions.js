@@ -3,6 +3,7 @@ import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
 // log
 import { fetchData } from "../data/dataActions";
+import { addBlockchainNetwork } from "../../helpers"
 
 const connectRequest = () => {
   return {
@@ -95,7 +96,11 @@ export const connect = () => {
           });
           // Add listeners end
         } else {
-          dispatch(connectFailed(`Change network to ${CONFIG.NETWORK.NAME}.`));
+          const isAddBlockchainNetwork = await addBlockchainNetwork()
+
+          if (!isAddBlockchainNetwork) {
+            dispatch(connectFailed(`Change network to ${CONFIG.NETWORK.NAME}.`))
+          }
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong."));
