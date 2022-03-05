@@ -183,8 +183,23 @@ function App() {
     SET_CONFIG(config);
   };
 
+  const currentConnectedAccount = async () => {
+    try {
+      const accounts = await ethereum.request({
+        method: "eth_accounts"
+      });
+
+      if (accounts.length === 0) return;
+
+      dispatch(connect());
+      getData();
+      initPreSaleNum();
+    } catch (err) { }
+  }
+
   useEffect(() => {
     getConfig();
+    currentConnectedAccount();
   }, []);
 
   useInterval(() => {
