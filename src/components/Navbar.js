@@ -1,7 +1,6 @@
-import "../styles/navbar.css"
+import '../styles/navbar.css'
 
 const Navbar = () => {
-
   return (
     <div class="navbar-container">
         <div>
@@ -12,6 +11,6 @@ const Navbar = () => {
             <a>Connect</a>
         </div>
     </div>
-  );
-};
-export default Navbar;
+  )
+}
+export default Navbar

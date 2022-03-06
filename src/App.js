@@ -1,213 +1,208 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { connect } from "./redux/blockchain/blockchainActions";
-import { fetchData } from "./redux/data/dataActions";
-import * as s from "./styles/globalStyles";
-import styled from "styled-components";
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { connect } from './redux/blockchain/blockchainActions'
+import { fetchData } from './redux/data/dataActions'
+import styled from 'styled-components'
 
-import nagaImg01 from "./styles/img/Naga_21-22.png"
-import pic1 from "./styles/img/item1.png"
-import pic2 from "./styles/img/Character-02.png"
-import pic3 from "./styles/img/Character-05.png"
-import nagaEgg from "./styles/Egg-04.png"
-import eggGif from "./styles/naga-egg.gif"
-import nagaLogo from "./styles/Draft_2-04.png"
-import facebookIcon from "./styles/facebook-round-color.svg"
-import discordIcon from "./styles/discord.svg"
-import twitterIcon from "./styles/twitter-round-color.svg"
-import useInterval from "use-interval";
-import WalletAddress from "./components/WalletAddress";
+import nagaImg01 from './styles/img/Naga_21-22.png'
+import pic1 from './styles/img/item1.png'
+import pic2 from './styles/img/Character-02.png'
+import pic3 from './styles/img/Character-05.png'
+import eggGif from './styles/naga-egg.gif'
+import nagaLogo from './styles/Draft_2-04.png'
+import facebookIcon from './styles/facebook-round-color.svg'
+import discordIcon from './styles/discord.svg'
+import twitterIcon from './styles/twitter-round-color.svg'
+import useInterval from 'use-interval'
+import WalletAddress from './components/WalletAddress'
 // import { PresentToAll } from "@mui/icons-material";
-
-const truncate = (input, len) =>
-  input.length > len ? `${input.substring(0, len)}...` : input;
 
 export const StyledButton = styled.button`
 
-`;
+`
 
 export const StyledRoundButton = styled.button`
 
-`;
+`
 
 export const ResponsiveWrapper = styled.div`
 
-`;
+`
 
 export const StyledLogo = styled.img`
 
-`;
+`
 
 export const StyledImg = styled.img`
 
-`;
+`
 
 export const StyledLink = styled.a`
 
-`;
+`
 
-const PUBLIC_SALE = true;
+const PUBLIC_SALE = true
 
-function App() {
-  const dispatch = useDispatch();
-  const blockchain = useSelector((state) => state.blockchain);
-  const data = useSelector((state) => state.data);
-  const [approved, setApproved] = useState(data.approved);
-  const [preSaleNum, setPreSaleNum] = useState(0);
-  const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
-  const [mintAmount, setMintAmount] = useState(1);
+function App () {
+  const dispatch = useDispatch()
+  const blockchain = useSelector((state) => state.blockchain)
+  const data = useSelector((state) => state.data)
+  const [approved, setApproved] = useState(data.approved)
+  const [preSaleNum, setPreSaleNum] = useState(0)
+  const [claimingNft, setClaimingNft] = useState(false)
+  const [feedback, setFeedback] = useState('Click buy to mint your NFT.')
+  const [mintAmount, setMintAmount] = useState(1)
   const [CONFIG, SET_CONFIG] = useState({
-    CONTRACT_ADDRESS: "",
-    SCAN_LINK: "",
+    CONTRACT_ADDRESS: '',
+    SCAN_LINK: '',
     NETWORK: {
-      NAME: "",
-      SYMBOL: "",
-      ID: 0,
+      NAME: '',
+      SYMBOL: '',
+      ID: 0
     },
-    NFT_NAME: "",
-    SYMBOL: "",
+    NFT_NAME: '',
+    SYMBOL: '',
     MAX_SUPPLY: 1,
     WEI_COST: 0,
     DISPLAY_COST: 0,
     GAS_LIMIT: 0,
-    MARKETPLACE: "",
-    MARKETPLACE_LINK: "",
-    SHOW_BACKGROUND: false,
-  });
+    MARKETPLACE: '',
+    MARKETPLACE_LINK: '',
+    SHOW_BACKGROUND: false
+  })
 
   useEffect(() => {
-    setApproved(data.approved);
-  }, [data.approved]);
+    setApproved(data.approved)
+  }, [data.approved])
 
   const claimNFTs = () => {
-    let cost = CONFIG.WEI_COST;
-    let gasLimit = CONFIG.GAS_LIMIT;
-    let totalCostWei = String(cost * mintAmount);
-    let totalGasLimit = String(gasLimit * mintAmount);
-    console.log("Cost: ", totalCostWei);
-    console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
-    setClaimingNft(true);
+    const cost = CONFIG.WEI_COST
+    const gasLimit = CONFIG.GAS_LIMIT
+    const totalCostWei = String(cost * mintAmount)
+    const totalGasLimit = String(gasLimit * mintAmount)
+    console.log('Cost: ', totalCostWei)
+    console.log('Gas limit: ', totalGasLimit)
+    setFeedback(`Minting your ${CONFIG.NFT_NAME}...`)
+    setClaimingNft(true)
     blockchain.smartContract.methods
       .mint(mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
-        from: blockchain.account,
+        from: blockchain.account
       })
-      .once("error", (err) => {
-        console.log(err);
-        setFeedback("Sorry, something went wrong please try again later.");
-        setClaimingNft(false);
+      .once('error', (err) => {
+        console.log(err)
+        setFeedback('Sorry, something went wrong please try again later.')
+        setClaimingNft(false)
       })
       .then((receipt) => {
-        console.log(receipt);
+        console.log(receipt)
         setFeedback(
           `the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
-        );
-        setClaimingNft(false);
-        dispatch(fetchData(blockchain.account));
-      });
-  };
+        )
+        setClaimingNft(false)
+        dispatch(fetchData(blockchain.account))
+      })
+  }
 
   const approve = () => {
-    let cost = CONFIG.WEI_COST;
-    let gasLimit = CONFIG.GAS_LIMIT;
-    let totalCostWei = String(cost * mintAmount);
-    let totalGasLimit = String(gasLimit * mintAmount);
-    console.log("Cost: ", totalCostWei);
-    console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Approving WETH for ${CONFIG.NFT_NAME}...`);
-    setClaimingNft(true);
+    const cost = CONFIG.WEI_COST
+    const gasLimit = CONFIG.GAS_LIMIT
+    const totalCostWei = String(cost * mintAmount)
+    const totalGasLimit = String(gasLimit * mintAmount)
+    console.log('Cost: ', totalCostWei)
+    console.log('Gas limit: ', totalGasLimit)
+    setFeedback(`Approving WETH for ${CONFIG.NFT_NAME}...`)
+    setClaimingNft(true)
     console.log(blockchain)
     console.log('CONTRACT ADDRESS', CONFIG.CONTRACT_ADDRESS)
     blockchain.tokenContract.methods
-      .approve(CONFIG.CONTRACT_ADDRESS, "1000000000000000000000000000000")
+      .approve(CONFIG.CONTRACT_ADDRESS, '1000000000000000000000000000000')
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
-        from: blockchain.account,
+        from: blockchain.account
       })
-      .once("error", (err) => {
-        console.log(err);
-        setFeedback("Please refresh this page when the approval is confirmed");
-        setClaimingNft(false);
+      .once('error', (err) => {
+        console.log(err)
+        setFeedback('Please refresh this page when the approval is confirmed')
+        setClaimingNft(false)
       })
       .then((receipt) => {
-        console.log(receipt);
+        console.log(receipt)
         setFeedback(
           `WETH approved, let mint ${CONFIG.NFT_NAME}.`
-        );
-        setClaimingNft(false);
-        dispatch(fetchData(blockchain.account));
-        setApproved(true);
-      });
-  };
+        )
+        setClaimingNft(false)
+        dispatch(fetchData(blockchain.account))
+        setApproved(true)
+      })
+  }
 
   const decrementMintAmount = () => {
-    let newMintAmount = mintAmount - 1;
+    let newMintAmount = mintAmount - 1
     if (newMintAmount < 1) {
-      newMintAmount = 1;
+      newMintAmount = 1
     }
-    setMintAmount(newMintAmount);
-  };
+    setMintAmount(newMintAmount)
+  }
 
-  const maxMint = PUBLIC_SALE ? 10 : data.whitelist ?? 0;
+  const maxMint = PUBLIC_SALE ? 10 : data.whitelist ?? 0
 
   const incrementMintAmount = () => {
-    let newMintAmount = mintAmount + 1;
+    let newMintAmount = mintAmount + 1
     if (newMintAmount > maxMint) {
-      newMintAmount = maxMint;
+      newMintAmount = maxMint
     }
-    setMintAmount(newMintAmount);
-  };
+    setMintAmount(newMintAmount)
+  }
 
   const initPreSaleNum = () => {
-    setPreSaleNum(39);
+    setPreSaleNum(39)
   }
 
   const getData = () => {
-    if (blockchain.account !== "" && blockchain.smartContract !== null) {
-      dispatch(fetchData(blockchain.account));
+    if (blockchain.account !== '' && blockchain.smartContract !== null) {
+      dispatch(fetchData(blockchain.account))
     }
-  };
+  }
 
   const getConfig = async () => {
-    const configResponse = await fetch("/config/config.json", {
+    const configResponse = await fetch('/config/config.json', {
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-    const config = await configResponse.json();
-    SET_CONFIG(config);
-  };
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      }
+    })
+    const config = await configResponse.json()
+    SET_CONFIG(config)
+  }
 
   const currentConnectedAccount = async () => {
     try {
+      const { ethereum } = window
       const accounts = await ethereum.request({
-        method: "eth_accounts"
-      });
+        method: 'eth_accounts'
+      })
 
-      if (accounts.length === 0) return;
+      if (accounts.length === 0) return
 
-      dispatch(connect());
-      getData();
-      initPreSaleNum();
+      dispatch(connect())
+      getData()
+      initPreSaleNum()
     } catch (err) { }
   }
 
   useEffect(() => {
-    getConfig();
-    currentConnectedAccount();
-  }, []);
+    getConfig()
+    currentConnectedAccount()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useInterval(() => {
-    getData();
-  }, 3000);
-
-  console.log(blockchain);
+    getData()
+  }, 3000)
 
   return (
     <div className="all-wrapper">
@@ -216,138 +211,156 @@ function App() {
       </div>
       <div className="nagaLinks">
             <div className="icon">
-                <a href="https://discord.gg/DF7krb8uNq" target="_blank" className="a-link discord">
+                <a href="https://discord.gg/DF7krb8uNq" target="_blank" className="a-link discord" rel="noreferrer">
                     <img src={discordIcon} alt=""></img>
                 </a>
-                <a href="https://www.facebook.com/nagadaonft/" target="_blank" className="a-link facebook">
+                <a href="https://www.facebook.com/nagadaonft/" target="_blank" className="a-link facebook" rel="noreferrer">
                     <img src={facebookIcon} alt=""></img>
                 </a>
-                <a href="https://twitter.com/The_NagaDAO" target="_blank" className="a-link twitter">
+                <a href="https://twitter.com/The_NagaDAO" target="_blank" className="a-link twitter" rel="noreferrer">
                     <img src={twitterIcon} alt=""></img>
                 </a>
           </div>
         </div>
         <section className="wave-section">
 
-        <div className="nagaEgg">
-            <img src={eggGif} alt=""></img>
-        </div>
+          <div className="nagaEgg">
+              <img src={eggGif} alt=""></img>
+          </div>
 
-        <div className="mint-interface">
-              {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
-                <div>
-                  <div>
-                    The sale has ended.
-                  </div>
-
-                    You can still find {CONFIG.NFT_NAME} on
-
-                  <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
-                    {CONFIG.MARKETPLACE}
-                  </StyledLink>
-                </div>
-              ) : (
-                <div>
-
-                  {blockchain.account === "" ||
-                  blockchain.smartContract === null ? (
-                    <div className="connect-div">
-
-                      <button className="buy-btn glow-on-hover"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          dispatch(connect());
-                          getData();
-                          initPreSaleNum();
-                        }}
-                      >
-                        CONNECT
-                      </button>
-
-                      <div className="connect-div-p">
-                        Connect to the Polygon Network
-                        </div>
-
-                      {blockchain.errorMsg !== "" ? (
+          <div className="mint-interface">
+                {
+                  Number(data.totalSupply) >= CONFIG.MAX_SUPPLY
+                    ? (
+                      <div>
                         <div>
-                            {blockchain.errorMsg}
+                          The sale has ended.
                         </div>
-                      ) : null}
-                    </div>
-                  ) : (
-                    PUBLIC_SALE || data.whitelist > 0 ? (<>
-                      <div className="after-connected">
 
-                        {/* {feedback} */}
+                          You can still find {CONFIG.NFT_NAME} on
 
-                      <div className="mint-amount">
-                        <button
-                          style={{ lineHeight: 0.4 }}
-                          disabled={claimingNft ? 1 : 0}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            decrementMintAmount();
-                          }}
-                        >
-                          −
-                        </button>
-
-                          {mintAmount}
-
-                        <button
-                          disabled={claimingNft ? 1 : 0}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            incrementMintAmount();
-                          }}
-                        >
-                          +
-                        </button>
+                        <StyledLink target={'_blank'} href={CONFIG.MARKETPLACE_LINK}>
+                          {CONFIG.MARKETPLACE}
+                        </StyledLink>
                       </div>
+                      )
+                    : (
+                      <div>
+                        {
+                          blockchain.account === '' || blockchain.smartContract === null
+                            ? (
+                              <div className="connect-div">
 
-                      <div className="mint-btn">
-                        {!approved &&
-                          <button
-                            className="buy-btn glow-on-hover"
-                            disabled={claimingNft ? 1 : 0}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              approve();
-                              getData();
-                            }}
-                          >
-                            {claimingNft ? "APPROVING..." : (data.whitelist == -1 ? 'Loading...' : "APPROVE WETH")}
-                          </button>
+                                <button className="buy-btn glow-on-hover"
+                                  onClick={(e) => {
+                                    e.preventDefault()
+                                    dispatch(connect())
+                                    getData()
+                                    initPreSaleNum()
+                                  }}
+                                >
+                                  CONNECT
+                                </button>
+
+                                <div className="connect-div-p">
+                                  Connect to the Polygon Network
+                                  </div>
+
+                                {
+                                  blockchain.errorMsg !== ''
+                                    ? (
+                                      <div>
+                                          {blockchain.errorMsg}
+                                      </div>
+                                      )
+                                    : null
+                                }
+                              </div>
+                              )
+                            : (
+                                PUBLIC_SALE || data.whitelist > 0
+                                  ? (
+                                    <>
+                                      <div className="after-connected">
+
+                                        {/* {feedback} */}
+
+                                        <div className="mint-amount">
+                                          <button
+                                            style={{ lineHeight: 0.4 }}
+                                            disabled={claimingNft ? 1 : 0}
+                                            onClick={(e) => {
+                                              e.preventDefault()
+                                              decrementMintAmount()
+                                            }}
+                                          >
+                                            −
+                                          </button>
+
+                                          {mintAmount}
+
+                                          <button
+                                            disabled={claimingNft ? 1 : 0}
+                                            onClick={(e) => {
+                                              e.preventDefault()
+                                              incrementMintAmount()
+                                            }}
+                                          >
+                                            +
+                                          </button>
+                                        </div>
+
+                                        <div className="mint-btn">
+                                          {
+                                            !approved &&
+                                              <button
+                                                className="buy-btn glow-on-hover"
+                                                disabled={claimingNft ? 1 : 0}
+                                                onClick={(e) => {
+                                                  e.preventDefault()
+                                                  approve()
+                                                  getData()
+                                                }}
+                                              >
+                                                {claimingNft ? 'APPROVING...' : (data.whitelist === -1 ? 'Loading...' : 'APPROVE WETH')}
+                                              </button>
+                                          }
+
+                                          {
+                                            approved &&
+                                              <button
+                                                className="buy-btn glow-on-hover"
+                                                disabled={claimingNft ? 1 : 0}
+                                                onClick={(e) => {
+                                                  e.preventDefault()
+                                                  claimNFTs()
+                                                  getData()
+                                                }}
+                                              >
+                                                {claimingNft ? 'BUYING...' : 'BUY'}
+                                              </button>
+                                          }
+                                        </div>
+
+                                        {feedback}
+
+                                        <div className="connected-to">Connected to <WalletAddress /></div>
+                                      </div>
+                                    </>
+                                    )
+                                  : (
+                                    <>
+                                      <div className="after-connected">
+                                        <div className="mint-amount">{data.whitelist === -1 ? 'Loading...' : 'Your mint quota has exceeded'}</div>
+                                        <div className="connected-to">Connected to <WalletAddress /></div>
+                                      </div>
+                                    </>
+                                    )
+                              )
                         }
-
-                        {approved &&
-                          <button
-                            className="buy-btn glow-on-hover"
-                            disabled={claimingNft ? 1 : 0}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              claimNFTs();
-                              getData();
-                            }}
-                          >
-                            {claimingNft ? "BUYING..." : "BUY"}
-                          </button>
-                        }
                       </div>
-
-                      {feedback}
-
-                      <div className="connected-to">Connected to <WalletAddress /></div>
-                    </div>
-                    </>) : (<>
-                      <div className="after-connected">
-                        <div className="mint-amount">{data.whitelist == -1 ? 'Loading...' : 'Your mint quota has exceeded'}</div>
-                        <div className="connected-to">Connected to <WalletAddress /></div>
-                      </div>
-                    </>))}
-                </div>
-              )}
-        </div>
+                      )}
+          </div>
 
           <a href="https://main.d1rz45xs0420mq.amplifyapp.com/" className="nagasec move">
             <img className="nagasec nagaimg" src={nagaImg01} alt="" />
@@ -361,7 +374,6 @@ function App() {
           <div className="wave wave6" />
         </section>
 
-
         <div className="bot-nav-container">
           <div className="bot-nav">
             {/* <div className="bot-nav-address">
@@ -370,17 +382,16 @@ function App() {
                 </StyledLink>
             </div> */}
               <div className="bot-nav-minted">
-                {data.whitelist == -1 ? <>... / {CONFIG.MAX_SUPPLY}</> : <>{Number(data.totalSupply) + preSaleNum} / {CONFIG.MAX_SUPPLY}</> }
+                {data.whitelist === -1 ? <>... / {CONFIG.MAX_SUPPLY}</> : <>{Number(data.totalSupply) + preSaleNum} / {CONFIG.MAX_SUPPLY}</> }
               </div>
 
               <div className="bot-nav-price">
-              1 {CONFIG.SYMBOL} ☰ {CONFIG.DISPLAY_COST}{" "}
+              1 {CONFIG.SYMBOL} ☰ {CONFIG.DISPLAY_COST}{' '}
                     {CONFIG.NETWORK.SYMBOL}
               </div>
 
           </div>
         </div>
-
 
       <section className="section">
         <div className="section-inner">
@@ -390,7 +401,7 @@ function App() {
               Naga DAO is an organization operating under the concept of
               Decentralized Autonomous Organization (DAO) which is a group of people
               working together using Blockchain technology as a tool. Decentralized
-              the power of the founder and spread it to other members.{" "}
+              the power of the founder and spread it to other members.{' '}
             </p>
             <p>
               It's like a club where people can work together from all over the
@@ -399,20 +410,20 @@ function App() {
             </p>
           </div>
           <div className="inner-img"
-          data-aos="fade-down-left" 
-          data-aos-duration="1000" 
-          data-aos-once="true" 
+          data-aos="fade-down-left"
+          data-aos-duration="1000"
+          data-aos-once="true"
           data-aos-anchor-placement="top-center">
             <img src={pic2} alt="" className="img-resize-mobile"/>
           </div>
         </div>
       </section>
-      <section className="section" style={{ backgroundColor: "#c4dbcc" }}>
+      <section className="section" style={{ backgroundColor: '#c4dbcc' }}>
         <div className="section-inner">
           <div className="inner-img"
-          data-aos="fade-down-right" 
-          data-aos-duration="1000" 
-          data-aos-once="true" 
+          data-aos="fade-down-right"
+          data-aos-duration="1000"
+          data-aos-once="true"
           data-aos-anchor-placement="top-center">
             <img src={pic1} alt="" />
           </div>
@@ -495,17 +506,40 @@ function App() {
               Naga's Metaverse will be built on the sandbox.
             </p>
           </div>
-          <div className="inner-img" 
-          data-aos="fade-down-left" 
-          data-aos-duration="1000" 
-          data-aos-once="true" 
+          <div className="inner-img"
+          data-aos="fade-down-left"
+          data-aos-duration="1000"
+          data-aos-once="true"
           data-aos-anchor-placement="top-center">
             <img src={pic3} alt="" className="img-resize-mobile" />
           </div>
         </div>
       </section>
+
+      <section className="section" style={{ backgroundColor: '#00100f' }}>
+        <div className="footer">
+            <div className="footer-div">
+                <p className="footer-div-p">
+                    Join Us!
+                </p>
+            </div>
+
+            <div className="icon">
+                <a href="https://discord.gg/DF7krb8uNq" className="a-link discord">
+                    <img src={discordIcon} alt=""></img>
+                </a>
+                <a href="https://www.facebook.com/nagadaonft/" className="a-link facebook">
+                    <img src={facebookIcon} alt=""></img>
+                </a>
+                <a href="https://twitter.com/The_NagaDAO" className="a-link twitter">
+                    <img src={twitterIcon} alt=""></img>
+                </a>
+            </div>
+        </div>
+    </section>
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

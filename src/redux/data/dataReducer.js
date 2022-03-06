@@ -3,20 +3,20 @@ const initialState = {
   totalSupply: 0,
   cost: 0,
   error: false,
-  errorMsg: "",
-  whitelist: -1,
-};
+  errorMsg: '',
+  whitelist: -1
+}
 
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "CHECK_DATA_REQUEST":
+    case 'CHECK_DATA_REQUEST':
       return {
         ...state,
         loading: true,
         error: false,
-        errorMsg: "",
-      };
-    case "CHECK_DATA_SUCCESS":
+        errorMsg: ''
+      }
+    case 'CHECK_DATA_SUCCESS':
       return {
         ...state,
         loading: false,
@@ -25,18 +25,18 @@ const dataReducer = (state = initialState, action) => {
         approved: action.payload.approved,
         // cost: action.payload.cost,
         error: false,
-        errorMsg: "",
-      };
-    case "CHECK_DATA_FAILED":
+        errorMsg: ''
+      }
+    case 'CHECK_DATA_FAILED':
       return {
         ...initialState,
         loading: false,
         error: true,
-        errorMsg: action.payload,
-      };
+        errorMsg: action.payload
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default dataReducer;
+export default dataReducer

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-function PreLoader() {
+function PreLoader () {
   return <div>
       Preloader
-  </div>;
+  </div>
 }
 
-export default PreLoader;
+export default PreLoader
