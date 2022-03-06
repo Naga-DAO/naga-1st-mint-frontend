@@ -16,6 +16,7 @@ import facebookIcon from "./styles/facebook-round-color.svg"
 import discordIcon from "./styles/discord.svg"
 import twitterIcon from "./styles/twitter-round-color.svg"
 import useInterval from "use-interval";
+import WalletAddress from "./components/WalletAddress";
 // import { PresentToAll } from "@mui/icons-material";
 
 const truncate = (input, len) =>
@@ -323,12 +324,12 @@ function App() {
 
                       {feedback}
 
-                      <div className="connected-to">Connected to {blockchain.account}</div>
+                      <div className="connected-to">Connected to <WalletAddress /></div>
                     </div>
                     </>) : (<>
                       <div className="after-connected">
                         <div className="mint-amount">{data.whitelist == -1 ? 'Loading...' : 'Your mint quota has exceeded'}</div>
-                        <div className="connected-to">Connected to {blockchain.account}</div>
+                        <div className="connected-to">Connected to <WalletAddress /></div>
                       </div>
                     </>))}
                 </div>
