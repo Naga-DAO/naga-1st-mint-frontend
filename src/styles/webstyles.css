@@ -94,14 +94,14 @@ p {
 } */
 
 .mint-interface {
-    position: absolute;
-    z-index: 9999;
-    bottom: 18%;
-    left: 50%;
-    transform: translate(-50%);
-    text-align: center;
-    color: white;
-    font-size: 14px;
+  position: absolute;
+  z-index: 9999;
+  bottom: 12%;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  color: white;
+  font-size: 14px;
 }
 
 .header-section .lol {
