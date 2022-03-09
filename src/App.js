@@ -212,8 +212,21 @@ function App() {
   return (
     <div className="all-wrapper">
       <div className="nagaLogo">
-      <img src={nagaLogo} alt="" />
+        <img src={nagaLogo} alt="" />
       </div>
+      <div className="nagaLinks">
+            <div className="icon">
+                <a href="https://discord.gg/DF7krb8uNq" target="_blank" className="a-link discord">
+                    <img src={discordIcon} alt=""></img>
+                </a>
+                <a href="https://www.facebook.com/nagadaonft/" target="_blank" className="a-link facebook">
+                    <img src={facebookIcon} alt=""></img>
+                </a>
+                <a href="https://twitter.com/The_NagaDAO" target="_blank" className="a-link twitter">
+                    <img src={twitterIcon} alt=""></img>
+                </a>
+          </div>
+        </div>
         <section className="wave-section">
 
         <div className="nagaEgg">
@@ -491,30 +504,6 @@ function App() {
           </div>
         </div>
       </section>
-
-
-      <section className="section" style={{backgroundColor: "#00100f"}}>
-        <div className="footer">
-            <div className="footer-div">
-                <p className="footer-div-p">
-                    Join Us!
-                </p>
-            </div>
-
-            <div className="icon">
-                <a href="https://discord.gg/DF7krb8uNq" className="a-link discord">
-                    <img src={discordIcon} alt=""></img>
-                </a>
-                <a href="https://www.facebook.com/nagadaonft/" className="a-link facebook">
-                    <img src={facebookIcon} alt=""></img>
-                </a>
-                <a href="https://twitter.com/The_NagaDAO" className="a-link twitter">
-                    <img src={twitterIcon} alt=""></img>
-                </a>
-            </div>
-        </div>
-    </section>
-
     </div>
   );
 }

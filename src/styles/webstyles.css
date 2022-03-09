@@ -1,24 +1,27 @@
 /*
   1. Use a more-intuitive box-sizing model.
 */
-*, *::before, *::after {
-box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 /*
 2. Remove default margin
 */
 * {
-margin: 0;
+  margin: 0;
 }
 /*
 3. Allow percentage-based heights in the application
 */
-html, body {
-height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 .all-wrapper {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 /*
 Typographic tweaks!
@@ -26,62 +29,70 @@ Typographic tweaks!
 5. Improve text rendering
 */
 body {
-line-height: 1.5;
--webkit-font-smoothing: antialiased;
-/* overflow-x: hidden; */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  /* overflow-x: hidden; */
 }
 /*
 6. Improve media defaults
 */
-img, picture, video, canvas, svg {
-display: block;
-max-width: 100%;
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
 /*
 7. Remove built-in form typography styles
 */
-input, button, textarea, select {
-font: inherit;
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 /*
 8. Avoid text overflows
 */
-p, h1, h2, h3, h4, h5, h6 {
-overflow-wrap: break-word;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 /*
 9. Create a root stacking context
 */
 
-
 /* Scrollbar */
-::-webkit-scrollbar-track
-{
-	box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-	background-color: #F5F5F5;
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
 }
 
-::-webkit-scrollbar
-{
-	width: 8px;
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-::-webkit-scrollbar-thumb
-{
-	background-color: black;
+::-webkit-scrollbar-thumb {
+  background-color: black;
 }
 /* Scrollbar */
-
 
 body {
-    font-family: "Roboto Mono", sans-serif;
+  font-family: "Roboto Mono", sans-serif;
 }
 
 p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    font-size: 22px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  font-size: 22px;
 }
 
 /* .header-section {
@@ -105,65 +116,64 @@ p {
 }
 
 .header-section .lol {
-    background-color: green;
+  background-color: green;
 }
 
 h2 {
-    font-size: 36px;
+  font-size: 36px;
 }
 
 .section .section-inner {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 110px 20px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 110px 20px;
 }
 
 h2 {
-    margin-bottom: 40px;
-    margin-top: 40px;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .section-inner .inner-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .section {
-    display: block;
+  display: block;
 }
 
 .section .section-inner {
-    padding: 80px 30px;
+  padding: 80px 30px;
 }
 
 .bot-nav-container {
-    z-index: 3000;
-    /* background-color: #4b74b1; */
+  z-index: 3000;
+  /* background-color: #4b74b1; */
 }
 
 .bot-nav-container .bot-nav {
-    height: auto;
-    max-width: 1180px;
-    margin: 0 auto;
+  height: auto;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
-
 .bot-nav {
-    /* background-color: lightgreen; */ 
-    /* for minted info */
-    height: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  /* background-color: lightgreen; */
+  /* for minted info */
+  height: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .bot-nav p {
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
 }
 
 /* .mint {
@@ -179,206 +189,199 @@ h2 {
 /* water */
 /* water */
 
-
 .wave-section {
-    position: relative;
-    /* width: 100%; */
-    /* height: 100vh; */
-    overflow: hidden;
-    /* background-image: url("NFTwall-01.png"); */
-    background-color: #00100f;
-    background-size: cover;
-    background-position: 50% 50%;
-    width: 100%;
-    height: 520px;
+  position: relative;
+  /* width: 100%; */
+  /* height: 100vh; */
+  overflow: hidden;
+  /* background-image: url("NFTwall-01.png"); */
+  background-color: #00100f;
+  background-size: cover;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 520px;
 }
 
 .wave-section .nagasec {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    /* dino size  */
-    /* background-color: #3586ff; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  /* dino size  */
+  /* background-color: #3586ff; */
 }
 
 .wave-section .nagasec.move {
-    animation: 
-    animate3 110s linear infinite, 
+  animation: animate3 110s linear infinite,
     animateNaga 5s alternate ease infinite;
-    z-index: 1002;
-    opacity: 1;
-    animation-delay: 0s;
-    /* bottom: 20 */
-    transform: rotate(-33deg);
-    cursor: grab;
+  z-index: 1002;
+  opacity: 1;
+  animation-delay: 0s;
+  /* bottom: 20 */
+  transform: rotate(-33deg);
+  cursor: grab;
 }
 
 .wave-section .nagasec.nagaimg {
-    animation: animateRotate 8s alternate ease infinite;
-    opacity: 1;
-    animation-delay: -2s;
-    bottom: -70px;
-    transform: rotate(-33deg);
-    z-index: 999999;
+  animation: animateRotate 8s alternate ease infinite;
+  opacity: 1;
+  animation-delay: -2s;
+  bottom: -70px;
+  transform: rotate(-33deg);
+  z-index: 999999;
 }
 
 @keyframes animateNaga {
-    0% {
-        bottom: 45px;
-    }
-    
-    100% {
-        bottom: 30px
-    }
+  0% {
+    bottom: 45px;
+  }
+
+  100% {
+    bottom: 30px;
+  }
 }
 
 @keyframes animateRotate {
-    0% {
-        transform: rotate(-33deg);
-    }
-    
-    100% {
-        transform: rotate(33deg);
-    }
+  0% {
+    transform: rotate(-33deg);
+  }
+
+  100% {
+    transform: rotate(33deg);
+  }
 }
 
 @keyframes animate3 {
-    0% 
-    {
-        transform: translateX(-4vw);
-    }
-    100% 
-    {
-        transform: translateX(104vw);
-    }
+  0% {
+    transform: translateX(-4vw);
+  }
+  100% {
+    transform: translateX(104vw);
+  }
 }
 
 .wave-section .wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: url("wave-white.png");
-    background-size: 1000px 100px;
-    /* background-color: #3586ff; */
-    
-    --bottom: -50px; 
-    /* adjusting wave starting bottom */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("wave-white.png");
+  background-size: 1000px 100px;
+  /* background-color: #3586ff; */
+
+  --bottom: -50px;
+  /* adjusting wave starting bottom */
 }
 
 .wave-section .wave.wave1 {
-    animation: animate 30s linear infinite;
-    z-index: 1000;
-    opacity: 1;
-    animation-delay: 0s;
-    bottom: calc(-10px + var(--bottom));
+  animation: animate 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: calc(-10px + var(--bottom));
 }
 
 .wave-section .wave.wave2 {
-    animation: animate2 15s linear infinite;
-    z-index: 999;
-    opacity: 0.8;
-    animation-delay: -5s;
-    bottom: calc(-10px + var(--bottom));
+  animation: animate2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.8;
+  animation-delay: -5s;
+  bottom: calc(-10px + var(--bottom));
 }
 
 .wave-section .wave.wave3 {
-    animation: animate 30s linear infinite;
-    z-index: 997;
-    opacity: 0.4;
-    animation-delay: -2s;
-    bottom: calc(-15px + var(--bottom));
+  animation: animate 30s linear infinite;
+  z-index: 997;
+  opacity: 0.4;
+  animation-delay: -2s;
+  bottom: calc(-15px + var(--bottom));
 }
 
 .wave-section .wave.wave4 {
-    animation: animate2 10s linear infinite;
-    z-index: 996;
-    opacity: 0.7;
-    animation-delay: -9s;
-    bottom: calc(-20px + var(--bottom));
+  animation: animate2 10s linear infinite;
+  z-index: 996;
+  opacity: 0.7;
+  animation-delay: -9s;
+  bottom: calc(-20px + var(--bottom));
 }
 
 .wave-section .wave.wave5 {
-    animation: animate 15s linear infinite;
-    z-index: 995;
-    opacity: 0.6;
-    animation-delay: -3s;
-    bottom: calc(-10px + var(--bottom));
+  animation: animate 15s linear infinite;
+  z-index: 995;
+  opacity: 0.6;
+  animation-delay: -3s;
+  bottom: calc(-10px + var(--bottom));
 }
 
 .wave-section .wave.wave6 {
-    animation: animate2 25s linear infinite;
-    z-index: 994;
-    opacity: 0.7;
-    animation-delay: -7s;
-    bottom: calc(-5px + var(--bottom));
+  animation: animate2 25s linear infinite;
+  z-index: 994;
+  opacity: 0.7;
+  animation-delay: -7s;
+  bottom: calc(-5px + var(--bottom));
 }
 
 @keyframes animate {
-    0%
-    {
-        background-position-x: 0;
-    }
-    100%
-    {
-        background-position-x: 1000px;
-    }
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
 }
 
 @keyframes animate2 {
-    0%
-    {
-        background-position-x: 0;
-    }
-    100%
-    {
-        background-position-x: -1000px;
-    }
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -1000px;
+  }
 }
 
 .bot-nav-container .bot-nav .bot-nav-minted {
-    font-family: 'Heebo', sans-serif;
+  font-family: "Heebo", sans-serif;
 }
 
 .bot-nav-container .bot-nav .bot-nav-minted::after {
-    content: " minted";
+  content: " minted";
 }
 
-.bot-nav .bot-nav-minted, .bot-nav .bot-nav-price {
-    margin: 0 auto;
+.bot-nav .bot-nav-minted,
+.bot-nav .bot-nav-price {
+  margin: 0 auto;
 }
 
 /* need adjust code */
 @media screen and (min-width: 1000px) {
-    .bot-nav-minted, .bot-nav .bot-nav-price {
-        width: 500px
-    }
+  .bot-nav-minted,
+  .bot-nav .bot-nav-price {
+    width: 500px;
+  }
 }
 
 .cp-mint-details .cp-mint-details-inner .cp-mint-details__detail {
-    font-size: 40px;
-    line-height: 60px;
-    font-family: 'Heebo', sans-serif;
-    font-weight: 700;
-    text-align: center;
-    position: relative;
+  font-size: 40px;
+  line-height: 60px;
+  font-family: "Heebo", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
 }
 
 /* need adjust */
 
 @media all and (max-width: 560px) {
+  .section-inner .inner-text p {
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 20px;
+  }
 
-    .section-inner .inner-text p {
-        font-size: 18px;
-        line-height: 25px;
-        margin-bottom: 20px;
-    }
-
-    h2 {
-        font-size: 25px;
-    }
+  h2 {
+    font-size: 25px;
+  }
 }
 
 .navbar input[type="checkbox"] {
@@ -422,16 +425,16 @@ h2 {
 }
 
 .mint-amount button {
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 20px;
-    background-color: transparent;
-    border: none;
-    color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  color: white;
 }
 
 .mint-amount button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* .buy-btn {
@@ -482,288 +485,315 @@ h2 {
 } */
 
 .img-resize-mobile {
-    width: 300px;
+  width: 300px;
 }
 
-
 .nagaEgg > img {
-    position: absolute;
-    width: 150px;
-    left:0;
-    right: 0;
-    bottom: 50%;
-    margin: 0 auto;
+  position: absolute;
+  width: 150px;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  margin: 0 auto;
 }
 
 .glow-on-hover {
-    width: 200px;
-    height: 50px;
-    border: 2px solid white;
-    outline: none;
-    color: #fff;
-    background: #00100f;
-    cursor: pointer;
-    position: relative;
-    /* z-index: 0; */
-    border-radius: 10px;
-    left:0;
-    right: 0;
-    bottom: 45%;
-    margin: 0 auto;
-    margin-bottom: 2rem;
+  width: 200px;
+  height: 50px;
+  border: 2px solid white;
+  outline: none;
+  color: #fff;
+  background: #00100f;
+  cursor: pointer;
+  position: relative;
+  /* z-index: 0; */
+  border-radius: 10px;
+  left: 0;
+  right: 0;
+  bottom: 45%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
 }
 
 .glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .6s ease-in-out;
-    border-radius: 15px;
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  border-radius: 15px;
 }
 
 .glow-on-hover:active {
-    color: #00100f
+  color: #00100f;
 }
 
 .glow-on-hover:hover:before {
-    opacity: 1;
+  opacity: 1;
 }
 
 .glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #111;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
 
 @keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .connected-to {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .after-connected > * {
-    margin: 10px;
+  margin: 10px;
 }
 
 .after-connected > .mint-btn {
-    margin: 0;
+  margin: 0;
 }
 
 .nagaLogo {
-    position: absolute;
-    left:0;
-    top:0;
-    z-index: 11000;
-    width: 160px;
-    padding: 10px 
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 11000;
+  width: 160px;
+  padding: 10px;
 }
-
 
 @media all and (min-width: 850px) {
-
-    .bot-nav-container .bot-nav {
-        color: #00100f;
-        padding: 0;
-        height: 15vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        flex-flow: nowrap;
-    }
-
-    .bot-nav .bot-nav-minted {
-        
-        font-size: 70px;
-        line-height: 50px;
-        width: 50%;
-        /* text-shadow: #252525 4px 3px 0; */
-    }
-
-    .bot-nav .bot-nav-minted::after {
-        margin-left: 10px;
-        content: "minted";
-        font-size: 15px;
-        opacity: 0.8;
-        /* text-shadow: #25252500 4px 3px 0; */
-    }
-
-    .bot-nav .bot-nav-price {
-        font-size: 50px;
-        line-height: 40px;
-        font-family: Heebo , monospace;
-        /* text-shadow: #252525 4px 3px 0; */
-    }
-
-    .wave-section {
-        height: calc(85vh);
-    }
-
-    body {
-        font-size: 1.5rem;
-        line-height: 1.5;
-        /* overflow-x: hidden; */
-    }
-
-    h2 {
-        font-size: 40px;
-    }
-
-    .section .section-inner {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
-            align-items: center;
-            padding: 110px 20px;
-        }
-
-    .section-inner .inner-text p {
-            font-size: 24px;
-            line-height: 33px;
-            margin-bottom: 40px;
-        }
-
-    .section-inner .inner-img {
-            width: 500px;
-        }
-
-    .section-inner .inner-text {
-        width: calc(100% - 580px);
-    }
-
-    .connected-to {
-    font-size: 16px;
-    }
-
-    .after-connected > * {
-        margin: 20px;
-    }
-
-    .after-connected > .mint-btn {
-        margin: 0;
-    }
-
-    .nagaLogo {
-        position: absolute;
-        left:0;
-        top:0;
-        z-index: 11000;
-        width: 160px;
-        padding: 15px 
-    }
-
-    .connected-to {
-        font-size: 16px;
-    }
-
-    .after-connected > * {
-        margin: 20px;
-    }
-
-    .after-connected > .mint-btn {
-        margin: 0;
-    }
-
-    .nagaLogo {
-        position: absolute;
-        left:0;
-        top:0;
-        z-index: 11000;
-        width: 160px;
-        padding: 15px 
-    }
-
-    .nagaEgg > img {
-        position: absolute;
-        width: 300px;
-        left:0;
-        right: 0;
-        bottom: 50%;
-        margin: 0 auto;
-    }
-
-    .mint-interface {
-        position: absolute;
-        z-index: 9999;
-        bottom: 18%;
-        left: 50%;
-        transform: translate(-50%);
-        text-align: center;
-        color: white;
-        font-size: 24px;
-    }
-
-    /* .nagaEgg {
-        width: 280px;
-    } */
-
-}
-
-
-.footer {
+  .bot-nav-container .bot-nav {
+    color: #00100f;
+    padding: 0;
+    height: 15vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    padding: 80px;
+    text-align: center;
+    flex-flow: nowrap;
+  }
+
+  .bot-nav .bot-nav-minted {
+    font-size: 70px;
+    line-height: 50px;
+    width: 50%;
+    /* text-shadow: #252525 4px 3px 0; */
+  }
+
+  .bot-nav .bot-nav-minted::after {
+    margin-left: 10px;
+    content: "minted";
+    font-size: 15px;
+    opacity: 0.8;
+    /* text-shadow: #25252500 4px 3px 0; */
+  }
+
+  .bot-nav .bot-nav-price {
+    font-size: 50px;
+    line-height: 40px;
+    font-family: Heebo, monospace;
+    /* text-shadow: #252525 4px 3px 0; */
+  }
+
+  .wave-section {
+    height: calc(85vh);
+  }
+
+  body {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    /* overflow-x: hidden; */
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  .section .section-inner {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 110px 20px;
+  }
+
+  .section-inner .inner-text p {
+    font-size: 24px;
+    line-height: 33px;
+    margin-bottom: 40px;
+  }
+
+  .section-inner .inner-img {
+    width: 500px;
+  }
+
+  .section-inner .inner-text {
+    width: calc(100% - 580px);
+  }
+
+  .connected-to {
+    font-size: 16px;
+  }
+
+  .after-connected > * {
+    margin: 20px;
+  }
+
+  .after-connected > .mint-btn {
+    margin: 0;
+  }
+
+  .nagaLogo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 11000;
+    width: 160px;
+    padding: 15px;
+  }
+
+  .connected-to {
+    font-size: 16px;
+  }
+
+  .after-connected > * {
+    margin: 20px;
+  }
+
+  .after-connected > .mint-btn {
+    margin: 0;
+  }
+
+  .nagaLogo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 11000;
+    width: 160px;
+    padding: 15px;
+  }
+
+  .nagaEgg > img {
+    position: absolute;
+    width: 300px;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    margin: 0 auto;
+  }
+
+  .mint-interface {
+    position: absolute;
+    z-index: 9999;
+    bottom: 18%;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    color: white;
+    font-size: 24px;
+  }
+
+  /* .nagaEgg {
+        width: 280px;
+    } */
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 80px;
 }
 
 .footer > a {
-    margin: 5%;
+  margin: 5%;
 }
 
-.a-link > img{
-    width: 50px;
+.a-link > img {
+  width: 50px;
 }
 
 .footer-div-p {
-    padding-bottom: 20px;
-    color: white;
-    width: 100px;
-    margin: 0 auto;
-    white-space: nowrap
+  padding-bottom: 20px;
+  color: white;
+  width: 100px;
+  margin: 0 auto;
+  white-space: nowrap;
 }
 
 .footer .icon {
-    display: flex;
+  display: flex;
 }
 
 .footer .icon > a {
-    margin: 0% 5%;
+  margin: 0% 5%;
 }
 
 .nagaLogo {
-    color: white;
+  color: white;
 }
 
-.text{
-    text-align: center;
+.nagaLinks {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 16px;
+  z-index: 99;
+}
+
+.nagaLinks .icon {
+  display: flex;
+}
+
+.nagaLinks .icon > a {
+  margin: 0% 5%;
+}
+
+.text {
+  text-align: center;
 }
 
 .text p:first-child {
-    text-decoration: underline ;
+  text-decoration: underline;
 }
 
 .random-item {
-    width: 500px;
+  width: 500px;
 }
