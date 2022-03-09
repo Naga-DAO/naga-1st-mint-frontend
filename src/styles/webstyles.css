@@ -107,7 +107,7 @@ p {
 .mint-interface {
   position: absolute;
   z-index: 9999;
-  bottom: 18%;
+  bottom: 12%;
   left: 50%;
   transform: translate(-50%);
   text-align: center;
