@@ -16,6 +16,8 @@ import twitterIcon from './styles/twitter-round-color.svg'
 import useInterval from 'use-interval'
 import WalletAddress from './components/WalletAddress'
 // import { PresentToAll } from "@mui/icons-material";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 export const StyledButton = styled.button``
 
@@ -183,6 +185,7 @@ function App () {
   useEffect(() => {
     getConfig()
     currentConnectedAccount()
+    AOS.init()
   }, [])
 
   useInterval(() => {
