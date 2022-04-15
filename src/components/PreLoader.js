@@ -1,9 +1,11 @@
 import React from 'react'
 
 function PreLoader () {
-  return <div>
+  return (
+    <div>
       Preloader
-  </div>
+    </div>
+  )
 }
 
 export default PreLoader
