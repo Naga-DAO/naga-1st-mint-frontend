@@ -76,7 +76,7 @@ Remember to update the title and description the `public/index.html` file
 
 ```html
 <title>Nerdy Coder Clones</title>
-<meta name="description" content="Mint your Nerdy Coder Clone NFT" />
+<meta name="description" content="Naga DAO was created to be a Thai NFT Incubator for all people. We believe in NFT technology and wants to deliver opportunity to everyone." />
 ```
 
 Also remember to update the short_name and name fields in the `public/manifest.json` file
@@ -84,7 +84,7 @@ Also remember to update the short_name and name fields in the `public/manifest.j
 ```json
 {
   "short_name": "NCC",
-  "name": "Coder Clone NFT"
+  "name": "Naga DAO was created to be a Thai NFT Incubator for all people. We believe in NFT technology and wants to deliver opportunity to everyone."
 }
 ```
 
