@@ -84,7 +84,7 @@ Also remember to update the short_name and name fields in the `public/manifest.j
 ```json
 {
   "short_name": "NCC",
-  "name": "Coder Clone NFT"
+  "name": "Naga DAO was created to be a Thai NFT Incubator for all people. We believe in NFT technology and wants to deliver opportunity to everyone."
 }
 ```
 
