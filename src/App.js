@@ -15,6 +15,7 @@ import discordIcon from './styles/discord.svg'
 import twitterIcon from './styles/twitter-round-color.svg'
 import useInterval from 'use-interval'
 import WalletAddress from './components/WalletAddress'
+import Avatar from './components/Avatar'
 // import { PresentToAll } from "@mui/icons-material";
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -60,6 +61,68 @@ function App () {
     MARKETPLACE_LINK: '',
     SHOW_BACKGROUND: false
   })
+
+  const contributorList = {
+    // Founder: [
+    //   {
+    //     imgMain: 'https://thiti.dev/_nuxt/img/avatar.be5a716.jpeg',
+    //     imgHover: '',
+    //     link: ''
+    //   }
+    // ],
+    Founder: [
+      {
+        imgMain: '/images/nuttakit-kundum-profile.jpeg',
+        imgHover: '/images/nuttakit-kundum-naga.png',
+        link: 'https://twitter.com/NuttakitNFT'
+      }
+    ],
+    Content: [
+      {
+        imgMain: '/images/sukritta-vaskul-naga.png',
+        imgHover: '/images/sukritta-vaskul-profile.jpeg',
+        link: 'https://twitter.com/ezcrypto_ning'
+      }
+    ],
+    Developer: [
+      {
+        imgMain: '/images/thiti-naga.png',
+        imgHover: '/images/thiti-profile.jpeg',
+        link: 'https://twitter.com/mrthiti_y'
+      },
+      {
+        imgMain: '/images/nonthasak-l-naga.jpeg',
+        imgHover: '/images/nonthasak-l-profile.png',
+        link: 'https://twitter.com/mojisejr'
+      }
+    ],
+    Treasury: [
+      {
+        imgMain: '/images/both-naga.png',
+        imgHover: '/images/both-profile.png',
+        link: 'https://twitter.com/0xbboth'
+      },
+      {
+        imgMain: '/images/patompong-manprasatkul-naga.png',
+        imgHover: '/images/patompong-manprasatkul-profile.jpeg',
+        link: 'https://twitter.com/PattoMotto'
+      }
+    ],
+    'Business Developer': [
+      {
+        imgMain: '/images/nutthapon-reewason-naga.png',
+        imgHover: '/images/nutthapon-reewason-profile.jpeg',
+        link: 'https://twitter.com/coalapanda3'
+      }
+    ],
+    Academy: [
+      {
+        imgMain: '/images/nuttakit-kundum-naga.png',
+        imgHover: '/images/nuttakit-kundum-profile.jpeg',
+        link: 'https://twitter.com/NuttakitNFT'
+      }
+    ]
+  }
 
   useEffect(() => {
     setApproved(data.approved)
@@ -533,6 +596,34 @@ function App () {
           >
             <img src={pic3} alt='' className='img-resize-mobile' />
           </div>
+        </div>
+      </section>
+
+      <section className='section' style={{ backgroundColor: '#c4dbcc' }}>
+        <div className='section-inner'>
+          <dev className='contribute'>
+            <div className='title'>
+              <h2>Contributor</h2>
+            </div>
+            {
+              Object.keys(contributorList).map(key => (
+                <div className='avatar' key={key}>
+                  <div className='title'>
+                    {key}
+                  </div>
+                  <div className='list'>
+                    {
+                      contributorList[key].map(it => (
+                        <a href={it.link} target='_blank' key={it.imgMain} rel='noreferrer'>
+                          <Avatar src={it.imgMain} srcHover={it.imgHover} />
+                        </a>
+                      ))
+                    }
+                  </div>
+                </div>
+              ))
+            }
+          </dev>
         </div>
       </section>
 
