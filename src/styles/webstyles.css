@@ -797,3 +797,35 @@ h2 {
 .random-item {
   width: 500px;
 }
+
+.contribute {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contribute > * {
+  width: 100%;
+}
+
+.avatar {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 30px;
+}
+
+.avatar > .title {
+  width: 30%;
+  padding: 10px;
+}
+
+.avatar > .list {
+  width: 70%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.avatar > .list > a {
+  margin: 10px;
+  width: 45px;
+}
