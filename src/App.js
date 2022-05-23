@@ -11,6 +11,7 @@ import pic3 from './styles/img/Character-05.png'
 import eggGif from './styles/naga-egg.gif'
 import nagaLogo from './styles/Draft_2-04.png'
 import facebookIcon from './styles/facebook-round-color.svg'
+import openseaIcon from './styles/opensea.svg'
 import discordIcon from './styles/discord.svg'
 import twitterIcon from './styles/twitter-round-color.svg'
 import useInterval from 'use-interval'
@@ -262,6 +263,14 @@ function App () {
       </div>
       <div className='nagaLinks'>
         <div className='icon'>
+          <a
+            href='https://opensea.io/collection/naga-dao'
+            target='_blank'
+            className='a-link opensea'
+            rel='noreferrer'
+          >
+            <img src={openseaIcon} alt='' />
+          </a>
           <a
             href='https://discord.gg/DF7krb8uNq'
             target='_blank'
@@ -634,6 +643,9 @@ function App () {
           </div>
 
           <div className='icon'>
+            <a href='https://opensea.io/collection/naga-dao' className='a-link opensea'>
+              <img src={openseaIcon} alt='' />
+            </a>
             <a href='https://discord.gg/DF7krb8uNq' className='a-link discord'>
               <img src={discordIcon} alt='' />
             </a>
