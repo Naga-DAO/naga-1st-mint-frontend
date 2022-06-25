@@ -78,11 +78,21 @@ function App () {
         link: 'https://twitter.com/NuttakitNFT'
       }
     ],
-    Content: [
+    'Content Creator': [
       {
         imgMain: '/images/sukritta-vaskul-naga.png',
         imgHover: '/images/sukritta-vaskul-profile.jpeg',
         link: 'https://twitter.com/ezcrypto_ning'
+      },
+      {
+        imgMain: '/images/A8FCB7C1-9CE6-4375-ACDF-C434BFFEAABD - Temim Chayapat.jpeg',
+        imgHover: '/images/AC5F5150-D94A-4D9E-BAB0-A30BD90C643D - Temim Chayapat.jpeg',
+        link: 'https://twitter.com/news_husky'
+      },
+      {
+        imgMain: '/images/unnamed - Chadjane Phuwanartpirom.png',
+        imgHover: '/images/197510244_4382895295083164_2226291833963038213_n - Chadjane Phuwanartpirom.jpeg',
+        link: 'https://twitter.com/JanEzBonDz'
       }
     ],
     Developer: [
@@ -95,6 +105,16 @@ function App () {
         imgMain: '/images/nonthasak-l-naga.jpeg',
         imgHover: '/images/nonthasak-l-profile.png',
         link: 'https://twitter.com/mojisejr'
+      },
+      {
+        imgMain: '/images/42 - trank phoojaruenchanachai.png',
+        imgHover: '/images/S__1679366 - trank phoojaruenchanachai.jpeg',
+        link: ''
+      },
+      {
+        imgMain: '/images/beam-naga - Nawapat Buakoet.png',
+        imgHover: '/images/BeamAnima - Nawapat Buakoet.png',
+        link: 'https://twitter.com/nawapatb2b'
       }
     ],
     Treasury: [
@@ -109,11 +129,16 @@ function App () {
         link: 'https://twitter.com/PattoMotto'
       }
     ],
-    'Business Developer': [
+    'Business Development': [
       {
         imgMain: '/images/nutthapon-reewason-naga.png',
         imgHover: '/images/nutthapon-reewason-profile.jpeg',
         link: 'https://twitter.com/coalapanda3'
+      },
+      {
+        imgMain: '/images/unnamed - Nichapat D..png',
+        imgHover: '/images/478665 - Nichapat D..jpg',
+        link: 'https://twitter.com/HACHI_TAMAGO'
       }
     ],
     Academy: [
@@ -121,6 +146,27 @@ function App () {
         imgMain: '/images/nuttakit-kundum-naga.png',
         imgHover: '/images/nuttakit-kundum-profile.jpeg',
         link: 'https://twitter.com/NuttakitNFT'
+      }
+    ],
+    Storyteller: [
+      {
+        imgMain: '/images/274867193_2094718577374258_9094910663280509620_n - Teerakit J..png',
+        imgHover: '/images/283545239_1633032430393825_7340961359469416166_n - Teerakit J..jpg',
+        link: 'https://twitter.com/nowyingkwatidoi'
+      }
+    ],
+    Community: [
+      {
+        imgMain: '/images/unnamed - Nutthapon Reewason.png',
+        imgHover: '/images/22885893_10155744911728536_3453993336912752039_n - Nutthapon Reewason.jpeg',
+        link: 'https://twitter.com/nreewason'
+      }
+    ],
+    Artist: [
+      {
+        imgMain: '/images/185 - nabtew natrawee.png',
+        imgHover: '/images/0016 - nabtew natrawee.jpeg',
+        link: 'https://twitter.com/nabtew2'
       }
     ]
   }
